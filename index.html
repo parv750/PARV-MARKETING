@@ -5,7 +5,7 @@
 <title>Parv Marketing | Premium Tiles & Bathware</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- LUXURY FONTS -->
+<!-- Luxury Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -13,7 +13,7 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:#1f1f23;
+  background:#1f1f23; /* luxury charcoal */
   color:#eaeaea;
 }
 
@@ -55,7 +55,7 @@ p{
   max-width:260px;
 }
 
-/* GRIDS */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -73,6 +73,30 @@ p{
 
 .card:hover{
   transform:translateY(-10px);
+}
+
+/* BRAND LOGOS */
+.brand-logos{
+  align-items:center;
+}
+
+.logo-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px;
+  background:#ffffff;
+}
+
+.logo-card img{
+  max-width:200px;
+  max-height:100px;
+  object-fit:contain;
+}
+
+/* Nitco dark logo fix */
+.dark-logo{
+  background:#000000;
 }
 
 /* IMAGE SLIDES */
@@ -133,9 +157,16 @@ footer{
 <!-- BRANDS -->
 <section>
   <h2>Brands We Deal In</h2>
-  <div class="grid">
-    <div class="card">Nitco Tiles</div>
-    <div class="card">Birla Pivot<br>(Aditya Birla Group)</div>
+  <div class="grid brand-logos">
+
+    <div class="card logo-card dark-logo">
+      <img src="images/nitco-logo.png" alt="Nitco Tiles Logo">
+    </div>
+
+    <div class="card logo-card">
+      <img src="images/birla-logo.png" alt="Birla Pivot Logo">
+    </div>
+
   </div>
 </section>
 
@@ -195,13 +226,12 @@ footer{
 <section>
   <h2>Our Approach</h2>
   <p>
-    At Parv Marketing, we believe building materials are long-term
-    investments. We help clients choose the right products that balance
-    design, durability, and value.
+    At Parv Marketing, we believe building materials are long-term investments.
+    We help clients choose products that balance design, durability, and value.
   </p>
   <p>
-    From product selection to after-sales support, our focus is to make
-    every project smooth, transparent, and reliable.
+    From selection to after-sales support, our focus is transparency,
+    reliability, and long-term relationships.
   </p>
 </section>
 
