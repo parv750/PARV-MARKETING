@@ -5,21 +5,30 @@
 <title>Parv Marketing | Tiles & Bathware</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE FONT -->
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* BASE */
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:#fafafa;
-  color:#222;
+  background:#1f1f23; /* luxury charcoal grey */
+  color:#eaeaea;
 }
 
+/* SECTIONS */
 section{
   padding:90px 8%;
   max-width:1200px;
-  margin:auto;
+  margin:70px auto;
+  background:#2a2a2f;
+  border-radius:18px;
+}
+
+/* TEXT */
+h1,h2{
+  color:#ffffff;
 }
 
 h1{
@@ -35,7 +44,7 @@ h2{
 p{
   font-size:16px;
   line-height:1.7;
-  color:#444;
+  color:#cfcfcf;
 }
 
 /* HERO */
@@ -50,31 +59,32 @@ p{
   max-width:240px;
 }
 
-/* GRID */
+/* GRIDS */
 .brands,.products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:30px;
 }
 
-/* CARD */
+/* CARDS */
 .card{
-  background:#fff;
+  background:#33333a;
   padding:30px;
   border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
   transition:all .3s ease;
+  color:#f0f0f0;
 }
 
 .card:hover{
   transform:translateY(-6px);
 }
 
-/* SLIDES */
+/* SLIDES + ANIMATION */
 .slide{
   width:100%;
   border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
   opacity:0;
   transform:translateY(50px);
   transition:all .8s ease;
@@ -96,14 +106,13 @@ p{
 footer{
   text-align:center;
   padding:30px;
-  color:#777;
+  color:#aaaaaa;
   font-size:14px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
   .hero,.contact{
-    grid-template-columns:1fr;
     flex-direction:column;
     text-align:center;
   }
@@ -143,8 +152,8 @@ footer{
   </div>
 </section>
 
-<!-- BIRLA PIVOT -->
-<section style="background:#eef3ff;">
+<!-- BIRLA PIVOT (THEME BLUE) -->
+<section style="background:linear-gradient(135deg,#0f2a44,#123b63);">
   <h2>Birla Pivot Bathware</h2>
   <p>Premium bathware solutions by Aditya Birla Group</p>
   <div class="brands">
@@ -154,7 +163,7 @@ footer{
 </section>
 
 <!-- NITCO -->
-<section style="background:#fff3eb;">
+<section style="background:linear-gradient(135deg,#3a1c12,#5a2b1c);">
   <h2>Nitco Tiles Collection</h2>
   <p>Designer wall & floor tiles</p>
   <div class="brands">
@@ -164,7 +173,7 @@ footer{
 </section>
 
 <!-- PLUMBING -->
-<section style="background:#f1fff4;">
+<section style="background:linear-gradient(135deg,#0f3b2a,#145c40);">
   <h2>Plumbing Pipes</h2>
   <p>CPVC • SWR • Drainage Systems</p>
   <div class="brands">
@@ -200,7 +209,7 @@ footer{
 © Parv Marketing | Indore, Madhya Pradesh
 </footer>
 
-<!-- SCROLL ANIMATION SCRIPT -->
+<!-- SCROLL ANIMATION -->
 <script>
 const slides = document.querySelectorAll('.slide');
 const observer = new IntersectionObserver(entries=>{
