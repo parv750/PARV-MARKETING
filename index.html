@@ -46,4 +46,173 @@ p{
   gap:40px;
 }
 
-.hero i
+.hero img{
+  max-width:240px;
+}
+
+/* GRID */
+.brands,.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:all .3s ease;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+/* SLIDES */
+.slide{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  opacity:0;
+  transform:translateY(50px);
+  transition:all .8s ease;
+}
+
+.slide.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero,.contact{
+    grid-template-columns:1fr;
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>PARV MARKETING</h1>
+    <p><b>Tiles • Bathware • Plumbing Pipes</b></p>
+    <p>Authorized dealer & supplier of premium building materials</p>
+  </div>
+  <img src="logo.png" alt="Parv Marketing Logo">
+</section>
+
+<!-- BRANDS -->
+<section>
+  <h2>Brands We Deal In</h2>
+  <div class="brands">
+    <div class="card">Nitco Tiles</div>
+    <div class="card">Birla Pivot<br>(Aditya Birla Group)</div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section>
+  <h2>What We Offer</h2>
+  <div class="products">
+    <div class="card">Tiles</div>
+    <div class="card">Bathware</div>
+    <div class="card">CP Fittings</div>
+    <div class="card">Plumbing Pipes</div>
+  </div>
+</section>
+
+<!-- BIRLA PIVOT -->
+<section style="background:#eef3ff;">
+  <h2>Birla Pivot Bathware</h2>
+  <p>Premium bathware solutions by Aditya Birla Group</p>
+  <div class="brands">
+    <img src="images/birla1.jpg" class="slide">
+    <img src="images/birla2.jpg" class="slide">
+  </div>
+</section>
+
+<!-- NITCO -->
+<section style="background:#fff3eb;">
+  <h2>Nitco Tiles Collection</h2>
+  <p>Designer wall & floor tiles</p>
+  <div class="brands">
+    <img src="images/nitco1.jpg" class="slide">
+    <img src="images/nitco2.jpg" class="slide">
+  </div>
+</section>
+
+<!-- PLUMBING -->
+<section style="background:#f1fff4;">
+  <h2>Plumbing Pipes</h2>
+  <p>CPVC • SWR • Drainage Systems</p>
+  <div class="brands">
+    <img src="images/pipes1.jpg" class="slide">
+    <img src="images/pipes2.jpg" class="slide">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact Us</h2>
+  <div class="contact">
+    <div>
+      <p><b>Address:</b><br>
+      1, Sarvoday Nagar, Near Sneh Nagar,<br>
+      Opp. Ilva School, Indore, MP – 452001</p>
+
+      <p><b>Call:</b><br>
+      +91 70673 92277<br>
+      +91 93032 09296</p>
+
+      <p><b>Instagram:</b> @parv.marketing</p>
+    </div>
+
+    <iframe 
+      src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
+      width="100%" height="260" style="border:0;">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+© Parv Marketing | Indore, Madhya Pradesh
+</footer>
+
+<!-- SCROLL ANIMATION SCRIPT -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+
+slides.forEach(slide=>observer.observe(slide));
+</script>
+
+</body>
+</html>
