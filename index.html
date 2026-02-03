@@ -2,92 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Parv Marketing | Tiles & Bathware</title>
+<title>Parv Marketing | Premium Tiles & Bathware</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- LUXURY FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 /* BASE */
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
-  background:#1f1f23; /* luxury charcoal grey */
+  font-family:'Inter',sans-serif;
+  background:#1f1f23;
   color:#eaeaea;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-  padding:90px 8%;
+  padding:140px 8%;
   max-width:1200px;
-  margin:70px auto;
+  margin:110px auto;
   background:#2a2a2f;
-  border-radius:18px;
+  border-radius:26px;
 }
 
 /* TEXT */
 h1,h2{
+  font-family:'Playfair Display',serif;
   color:#ffffff;
+  letter-spacing:.6px;
 }
 
-h1{
-  font-size:48px;
-  margin-bottom:10px;
-}
-
-h2{
-  font-size:34px;
-  margin-bottom:15px;
-}
+h1{font-size:56px;}
+h2{font-size:38px;margin-bottom:20px;}
 
 p{
-  font-size:16px;
-  line-height:1.7;
-  color:#cfcfcf;
+  font-size:17px;
+  line-height:1.9;
+  color:#d0d0d0;
 }
 
 /* HERO */
 .hero{
+  min-height:85vh;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:40px;
+  gap:60px;
 }
 
 .hero img{
-  max-width:240px;
+  max-width:260px;
 }
 
 /* GRIDS */
-.brands,.products{
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:36px;
 }
 
-/* CARDS */
+/* CARD */
 .card{
   background:#33333a;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-  transition:all .3s ease;
-  color:#f0f0f0;
+  padding:42px;
+  border-radius:22px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.45);
+  transition:.35s ease;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-10px);
 }
 
-/* SLIDES + ANIMATION */
+/* IMAGE SLIDES */
 .slide{
   width:100%;
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
   opacity:0;
-  transform:translateY(50px);
-  transition:all .8s ease;
+  transform:translateY(60px);
+  transition:1s ease;
 }
 
 .slide.visible{
@@ -99,13 +94,13 @@ p{
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:60px;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   color:#aaaaaa;
   font-size:14px;
 }
@@ -127,7 +122,10 @@ footer{
   <div>
     <h1>PARV MARKETING</h1>
     <p><b>Tiles • Bathware • Plumbing Pipes</b></p>
-    <p>Authorized dealer & supplier of premium building materials</p>
+    <p>
+      Authorized dealer & supplier of premium building materials,
+      trusted by architects, contractors, and homeowners.
+    </p>
   </div>
   <img src="logo.png" alt="Parv Marketing Logo">
 </section>
@@ -135,7 +133,7 @@ footer{
 <!-- BRANDS -->
 <section>
   <h2>Brands We Deal In</h2>
-  <div class="brands">
+  <div class="grid">
     <div class="card">Nitco Tiles</div>
     <div class="card">Birla Pivot<br>(Aditya Birla Group)</div>
   </div>
@@ -144,19 +142,30 @@ footer{
 <!-- PRODUCTS -->
 <section>
   <h2>What We Offer</h2>
-  <div class="products">
-    <div class="card">Tiles</div>
-    <div class="card">Bathware</div>
-    <div class="card">CP Fittings</div>
-    <div class="card">Plumbing Pipes</div>
+  <div class="grid">
+    <div class="card">Premium Floor & Wall Tiles</div>
+    <div class="card">Luxury Bathware & Sanitaryware</div>
+    <div class="card">CP Fittings & Accessories</div>
+    <div class="card">CPVC & SWR Plumbing Pipes</div>
   </div>
 </section>
 
-<!-- BIRLA PIVOT (THEME BLUE) -->
+<!-- WHO WE SERVE -->
+<section>
+  <h2>Who We Work With</h2>
+  <div class="grid">
+    <div class="card">Architects & Interior Designers</div>
+    <div class="card">Residential Homeowners</div>
+    <div class="card">Builders & Contractors</div>
+    <div class="card">Commercial Projects</div>
+  </div>
+</section>
+
+<!-- BIRLA PIVOT -->
 <section style="background:linear-gradient(135deg,#0f2a44,#123b63);">
   <h2>Birla Pivot Bathware</h2>
   <p>Premium bathware solutions by Aditya Birla Group</p>
-  <div class="brands">
+  <div class="grid">
     <img src="images/birla1.jpg" class="slide">
     <img src="images/birla2.jpg" class="slide">
   </div>
@@ -165,8 +174,8 @@ footer{
 <!-- NITCO -->
 <section style="background:linear-gradient(135deg,#3a1c12,#5a2b1c);">
   <h2>Nitco Tiles Collection</h2>
-  <p>Designer wall & floor tiles</p>
-  <div class="brands">
+  <p>Designer wall & floor tiles for modern interiors</p>
+  <div class="grid">
     <img src="images/nitco1.jpg" class="slide">
     <img src="images/nitco2.jpg" class="slide">
   </div>
@@ -174,12 +183,26 @@ footer{
 
 <!-- PLUMBING -->
 <section style="background:linear-gradient(135deg,#0f3b2a,#145c40);">
-  <h2>Plumbing Pipes</h2>
-  <p>CPVC • SWR • Drainage Systems</p>
-  <div class="brands">
+  <h2>Plumbing Pipe Solutions</h2>
+  <p>CPVC • SWR • Long-lasting drainage systems</p>
+  <div class="grid">
     <img src="images/pipes1.jpg" class="slide">
     <img src="images/pipes2.jpg" class="slide">
   </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section>
+  <h2>Our Approach</h2>
+  <p>
+    At Parv Marketing, we believe building materials are long-term
+    investments. We help clients choose the right products that balance
+    design, durability, and value.
+  </p>
+  <p>
+    From product selection to after-sales support, our focus is to make
+    every project smooth, transparent, and reliable.
+  </p>
 </section>
 
 <!-- CONTACT -->
@@ -189,7 +212,7 @@ footer{
     <div>
       <p><b>Address:</b><br>
       1, Sarvoday Nagar, Near Sneh Nagar,<br>
-      Opp. Ilva School, Indore, MP – 452001</p>
+      Opp. Ilva School, Indore, Madhya Pradesh – 452001</p>
 
       <p><b>Call:</b><br>
       +91 70673 92277<br>
@@ -198,9 +221,9 @@ footer{
       <p><b>Instagram:</b> @parv.marketing</p>
     </div>
 
-    <iframe 
+    <iframe
       src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
-      width="100%" height="260" style="border:0;">
+      width="100%" height="280" style="border:0;">
     </iframe>
   </div>
 </section>
@@ -211,15 +234,14 @@ footer{
 
 <!-- SCROLL ANIMATION -->
 <script>
-const slides = document.querySelectorAll('.slide');
-const observer = new IntersectionObserver(entries=>{
+const slides=document.querySelectorAll('.slide');
+const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
     }
   });
 },{threshold:0.2});
-
 slides.forEach(slide=>observer.observe(slide));
 </script>
 
