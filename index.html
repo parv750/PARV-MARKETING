@@ -2,186 +2,181 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Parv Marketing | Premium Tiles & Bathware</title>
+<title>Parv Marketing | Ultra Animated Premium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- CLASSY MODERN FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Syne:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- DESIGNER FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ================= RESET ================= */
-*{box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
 body{
-  margin:0;
   font-family:'Inter',sans-serif;
-  background:#111214;
-  color:#e8e8ea;
+  background:#0d0e11;
+  color:#eee;
   overflow-x:hidden;
 }
 
-/* ================= SMOOTH SCROLL ================= */
-html{scroll-behavior:smooth;}
-
-/* ================= BACKGROUND GRID ================= */
-.bg-grid{
+/* ===== BACKGROUND ANIMATION LAYERS ===== */
+.bg-layer{
   position:fixed;
-  inset:0;
-  background:
-    linear-gradient(transparent 95%,rgba(255,255,255,.04) 96%),
-    linear-gradient(90deg,transparent 95%,rgba(255,255,255,.04) 96%);
-  background-size:60px 60px;
-  z-index:-3;
-}
-
-/* ================= FLOATING SHAPES ================= */
-.shape{
-  position:fixed;
-  width:600px;
-  height:600px;
+  width:800px;
+  height:800px;
   border-radius:50%;
-  filter:blur(100px);
-  opacity:.45;
-  z-index:-2;
+  filter:blur(120px);
+  opacity:.4;
+  z-index:-1;
+  animation:float 18s ease-in-out infinite;
 }
-.s1{background:#2b2b30;top:-200px;left:-200px;}
-.s2{background:#3a3a42;top:20%;right:-250px;}
-.s3{background:#242428;top:60%;left:-250px;}
-.s4{background:#3b2a4a;top:40%;right:-300px;} /* Birla purple tint */
+.bg1{background:#2b2b33;top:-300px;left:-300px}
+.bg2{background:#3b3b44;top:30%;right:-350px;animation-delay:2s}
+.bg3{background:#4a2f5c;top:55%;left:-350px;animation-delay:4s} /* Birla purple */
 
-/* ================= SECTIONS ================= */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-120px)}
+}
+
+/* ===== SECTIONS ===== */
 section{
-  max-width:1400px;
-  margin:160px auto;
+  min-height:100vh;
   padding:160px 10%;
   position:relative;
 }
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero{
-  min-height:100vh;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   align-items:center;
 }
 .hero h1{
   font-family:'DM Serif Display',serif;
-  font-size:86px;
+  font-size:92px;
   line-height:1;
-  margin:0;
+  overflow:hidden;
 }
 .hero p{
   font-size:20px;
   max-width:520px;
-  opacity:.85;
+  margin-top:20px;
+  opacity:.8;
 }
 .hero img{
-  width:300px;
-  animation:float 6s ease-in-out infinite;
+  width:320px;
+  animation:logoFloat 6s ease-in-out infinite;
 }
 
-/* ================= KEYFRAMES ================= */
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-25px);}
+@keyframes logoFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-40px)}
 }
 
-/* ================= HEADINGS ================= */
-h2{
-  font-family:'Syne',sans-serif;
-  font-size:48px;
-  margin-bottom:40px;
-}
-
-/* ================= GRID ================= */
+/* ===== GRID ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:60px;
 }
 
-/* ================= CARDS ================= */
+/* ===== CARD ===== */
 .card{
-  background:linear-gradient(145deg,#1b1c20,#2a2b31);
+  background:linear-gradient(145deg,#1b1c22,#262733);
   padding:60px;
-  border-radius:30px;
-  box-shadow:0 40px 120px rgba(0,0,0,.7);
-  transform:translateY(80px);
+  border-radius:32px;
+  box-shadow:0 50px 140px rgba(0,0,0,.7);
+  transform:translateY(120px) scale(.9);
   opacity:0;
-  transition:1s cubic-bezier(.22,1,.36,1);
+  transition:1.2s cubic-bezier(.22,1,.36,1);
+  position:relative;
 }
 .card.show{
   transform:none;
   opacity:1;
 }
+.card:hover{
+  transform:scale(1.05) rotateX(6deg) rotateY(-6deg);
+}
 
-/* ================= BRAND LOGOS ================= */
+/* ===== BRAND LOGO CARD ===== */
 .logo{
   background:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-.logo img{
-  max-width:220px;
-}
-.logo.dark{background:#000;}
+.logo img{max-width:220px}
+.logo.dark{background:#000}
 
-/* ================= IMAGE REVEAL ================= */
-.reveal{
+/* ===== IMAGE ===== */
+.image{
   width:100%;
-  border-radius:30px;
-  box-shadow:0 50px 140px rgba(0,0,0,.8);
-  transform:scale(.85) translateY(120px);
+  border-radius:34px;
+  box-shadow:0 60px 160px rgba(0,0,0,.85);
+  transform:scale(.85) rotate(-2deg);
   opacity:0;
   transition:1.4s cubic-bezier(.22,1,.36,1);
 }
-.reveal.show{
+.image.show{
   transform:none;
   opacity:1;
 }
 
-/* ================= BIRLA SECTION ================= */
-.birla{
-  background:radial-gradient(circle at top right,#3b2a4a,#1a1a1f);
-  border-radius:40px;
+/* ===== TEXT REVEAL ===== */
+.reveal-text span{
+  display:inline-block;
+  transform:translateY(120%);
+  opacity:0;
+  transition:.8s ease;
+}
+.reveal-text.show span{
+  transform:none;
+  opacity:1;
 }
 
-/* ================= CONTACT ================= */
+/* ===== BIRLA SECTION ===== */
+.birla{
+  background:radial-gradient(circle at top right,#4a2f5c,#121217);
+  border-radius:50px;
+}
+
+/* ===== CONTACT ===== */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:80px;
 }
 
-/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:80px 20px;
+  padding:100px 20px;
   opacity:.6;
 }
 
-/* ================= MOBILE ================= */
+/* ===== MOBILE ===== */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center;}
-  .hero h1{font-size:60px;}
-  section{padding:120px 8%;}
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:60px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-grid"></div>
-<div class="shape s1"></div>
-<div class="shape s2"></div>
-<div class="shape s3"></div>
-<div class="shape s4"></div>
+<!-- BACKGROUND -->
+<div class="bg-layer bg1"></div>
+<div class="bg-layer bg2"></div>
+<div class="bg-layer bg3"></div>
 
 <!-- HERO -->
 <section class="hero">
   <div>
-    <h1>PARV<br>MARKETING</h1>
-    <p>Premium tiles, bathware & plumbing materials curated for architects and modern spaces.</p>
+    <h1 class="reveal-text">PARV<br>MARKETING</h1>
+    <p>Ultra-premium tiles, bathware & plumbing materials curated for architects and modern spaces.</p>
   </div>
   <img src="logo.png">
 </section>
@@ -210,17 +205,8 @@ footer{
 <section class="birla">
   <h2>Birla Pivot Bathware</h2>
   <div class="grid">
-    <img src="images/birla1.jpg" class="reveal">
-    <img src="images/birla2.jpg" class="reveal">
-  </div>
-</section>
-
-<!-- NITCO -->
-<section>
-  <h2>Nitco Tiles Collection</h2>
-  <div class="grid">
-    <img src="images/nitco1.jpg" class="reveal">
-    <img src="images/nitco2.jpg" class="reveal">
+    <img src="images/birla1.jpg" class="image">
+    <img src="images/birla2.jpg" class="image">
   </div>
 </section>
 
@@ -234,25 +220,41 @@ footer{
       <p>@parv.marketing</p>
     </div>
     <iframe src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
-      width="100%" height="340" style="border:0;"></iframe>
+      width="100%" height="360" style="border:0;"></iframe>
   </div>
 </section>
 
 <footer>© Parv Marketing | Indore</footer>
 
 <script>
-/* SCROLL REVEALS */
-const items=[...document.querySelectorAll('.card,.reveal')];
-const io=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add('show'));
-},{threshold:.2});
-items.forEach(i=>io.observe(i));
+/* LETTER SPLIT */
+document.querySelectorAll('.reveal-text').forEach(el=>{
+  const text=el.innerText;
+  el.innerHTML='';
+  [...text].forEach((l,i)=>{
+    const span=document.createElement('span');
+    span.textContent=l;
+    span.style.transitionDelay=`${i*40}ms`;
+    el.appendChild(span);
+  });
+});
 
-/* HEAVY PARALLAX */
+/* INTERSECTION ANIMATION */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:.2});
+
+document.querySelectorAll('.card,.image,.reveal-text').forEach(el=>obs.observe(el));
+
+/* SCROLL PARALLAX */
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
-  document.querySelectorAll('.shape').forEach((s,i)=>{
-    s.style.transform=`translateY(${y*0.25*(i+1)}px)`;
+  document.querySelectorAll('.bg-layer').forEach((b,i)=>{
+    b.style.transform=`translateY(${y*0.3*(i+1)}px)`;
   });
 });
 </script>
