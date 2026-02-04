@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 🔒 MOBILE ZOOM FIX -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <title>PARV MARKETING | Premium Tiles & Bathware</title>
 
 <!-- PREMIUM FONTS -->
@@ -15,14 +18,16 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   font-family:'Inter',sans-serif;
   background:#0e0f13;
   color:#eaeaea;
   overflow-x:hidden;
+  max-width:100vw;
 }
 
-/* BACKGROUND ABSTRACT */
+/* ================= BACKGROUND BLOBS ================= */
 .bg{
   position:fixed;
   width:700px;
@@ -36,18 +41,20 @@ body{
 .bg2{background:#3b3b44;top:30%;right:-300px}
 .bg3{background:#4a2f5c;top:60%;left:-300px} /* Birla purple */
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
   padding:160px 10%;
   position:relative;
+  width:100%;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   align-items:center;
+  gap:60px;
 }
 .hero h1{
   font-family:'Playfair Display',serif;
@@ -65,21 +72,21 @@ section{
   width:320px;
 }
 
-/* HEADINGS */
+/* ================= HEADINGS ================= */
 h2{
   font-family:'Syne',sans-serif;
   font-size:56px;
   margin-bottom:50px;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:70px;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 .card{
   background:linear-gradient(145deg,#1b1c22,#262733);
   padding:70px;
@@ -87,7 +94,7 @@ h2{
   box-shadow:0 50px 140px rgba(0,0,0,.7);
 }
 
-/* LOGOS */
+/* ================= LOGOS ================= */
 .logo{
   background:#fff;
   display:flex;
@@ -97,42 +104,107 @@ h2{
 .logo.dark{background:#000}
 .logo img{max-width:240px}
 
-/* IMAGES */
+/* ================= IMAGES ================= */
 .image{
   width:100%;
   border-radius:40px;
   box-shadow:0 60px 160px rgba(0,0,0,.85);
 }
 
-/* BIRLA SECTION */
+/* ================= BIRLA ================= */
 .birla{
   background:radial-gradient(circle at top right,#4a2f5c,#121217);
   border-radius:60px;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:90px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
   padding:90px 20px;
   opacity:.6;
 }
 
-/* MOBILE */
+/* ================================================= */
+/* ================= MOBILE FIX ==================== */
+/* ================================================= */
 @media(max-width:900px){
-  section{padding:100px 7%}
-  .hero{grid-template-columns:1fr;text-align:center}
-  .hero h1{font-size:60px;letter-spacing:3px}
-  h2{font-size:38px}
-  .grid{grid-template-columns:1fr;gap:40px}
-  .contact{grid-template-columns:1fr}
-  .hero img{margin:40px auto 0;width:220px}
+
+  section{
+    padding:90px 6vw;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+
+  .hero > div{
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero h1{
+    font-size:58px;
+    letter-spacing:3px;
+  }
+
+  .hero p{
+    font-size:18px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero img{
+    width:220px;
+    margin:40px auto 0;
+  }
+
+  h2{
+    font-size:38px;
+    margin-bottom:30px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .card{
+    padding:45px;
+    border-radius:28px;
+  }
+
+  .image{
+    border-radius:28px;
+  }
+
+  .contact{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  iframe{
+    height:260px;
+  }
+
+  /* reduce zoom illusion on mobile */
+  .bg{
+    width:500px;
+    height:500px;
+    filter:blur(160px);
+    opacity:.3;
+  }
 }
 </style>
 </head>
@@ -147,11 +219,11 @@ footer{
 <!-- HERO -->
 <section class="hero">
   <div>
-    <h1 class="hero-text">
+    <h1>
       <span>PARV</span><br>
       <span>MARKETING</span>
     </h1>
-    <p class="hero-sub">
+    <p>
       Premium tiles, bathware & plumbing materials curated for architects and modern spaces.
     </p>
   </div>
@@ -225,11 +297,9 @@ footer{
 gsap.registerPlugin(ScrollTrigger);
 
 /* HERO */
-gsap.from(".hero-text span",{
-  y:120,opacity:0,stagger:.15,duration:1.4,ease:"power4.out"
-});
-gsap.from(".hero-sub",{opacity:0,y:40,delay:.8});
-gsap.from(".hero-logo",{opacity:0,scale:.8,delay:1});
+gsap.from(".hero h1 span",{y:120,opacity:0,stagger:.15,duration:1.4,ease:"power4.out"});
+gsap.from(".hero p",{opacity:0,y:40,delay:.8});
+gsap.from(".hero-logo",{opacity:0,scale:.85,delay:1});
 
 /* CARDS */
 gsap.utils.toArray(".card").forEach(card=>{
@@ -247,10 +317,12 @@ gsap.utils.toArray(".image").forEach(img=>{
   });
 });
 
-/* BACKGROUND PARALLAX */
-gsap.to(".bg1",{y:300,scrollTrigger:{scrub:1}});
-gsap.to(".bg2",{y:-300,scrollTrigger:{scrub:1}});
-gsap.to(".bg3",{y:400,scrollTrigger:{scrub:1}});
+/* BACKGROUND PARALLAX (DESKTOP ONLY) */
+if(window.innerWidth>900){
+  gsap.to(".bg1",{y:300,scrollTrigger:{scrub:1}});
+  gsap.to(".bg2",{y:-300,scrollTrigger:{scrub:1}});
+  gsap.to(".bg3",{y:400,scrollTrigger:{scrub:1}});
+}
 </script>
 
 </body>
