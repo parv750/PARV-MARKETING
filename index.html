@@ -5,36 +5,80 @@
 <title>Parv Marketing | Premium Tiles & Bathware</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Luxury Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- DESIGNER FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* BASE */
+/* ===== BASE ===== */
 body{
   margin:0;
-  font-family:'Inter',sans-serif;
-  background:#1f1f23; /* luxury charcoal */
+  font-family:'Manrope',sans-serif;
+  background:#1c1c20;
   color:#eaeaea;
+  overflow-x:hidden;
 }
 
-/* SECTION */
+/* ===== ABSTRACT BACKGROUND LAYERS ===== */
+.bg-shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:.35;
+  z-index:0;
+}
+
+.shape-grey{
+  background:#2f2f36;
+  width:600px;
+  height:600px;
+  top:-200px;
+  left:-200px;
+}
+
+.shape-grey-2{
+  background:#26262c;
+  width:500px;
+  height:500px;
+  bottom:-200px;
+  right:-150px;
+}
+
+.shape-blue{
+  background:#123b63;
+  width:550px;
+  height:550px;
+  top:20%;
+  right:-200px;
+}
+
+.shape-brown{
+  background:#5a2b1c;
+  width:500px;
+  height:500px;
+  top:55%;
+  left:-200px;
+}
+
+/* ===== SECTION ===== */
 section{
-  padding:140px 8%;
+  position:relative;
+  padding:150px 8%;
   max-width:1200px;
-  margin:110px auto;
-  background:#2a2a2f;
-  border-radius:26px;
+  margin:120px auto;
+  background:#24242a;
+  border-radius:28px;
+  z-index:1;
 }
 
-/* TEXT */
+/* ===== TEXT ===== */
 h1,h2{
   font-family:'Playfair Display',serif;
   color:#ffffff;
   letter-spacing:.6px;
 }
 
-h1{font-size:56px;}
-h2{font-size:38px;margin-bottom:20px;}
+h1{font-size:58px;}
+h2{font-size:40px;margin-bottom:25px;}
 
 p{
   font-size:17px;
@@ -42,71 +86,63 @@ p{
   color:#d0d0d0;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
-  min-height:85vh;
+  min-height:90vh;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:60px;
+  gap:70px;
 }
 
 .hero img{
   max-width:260px;
 }
 
-/* GRID */
+/* ===== GRID ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:36px;
+  gap:40px;
 }
 
-/* CARD */
+/* ===== CARD ===== */
 .card{
-  background:#33333a;
-  padding:42px;
-  border-radius:22px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.45);
-  transition:.35s ease;
+  background:#2f2f36;
+  padding:45px;
+  border-radius:24px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  transition:.4s ease;
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px) scale(1.02);
 }
 
-/* BRAND LOGOS */
-.brand-logos{
-  align-items:center;
-}
-
+/* ===== BRAND LOGOS ===== */
 .logo-card{
+  background:#ffffff;
   display:flex;
   align-items:center;
   justify-content:center;
   padding:60px;
-  background:#ffffff;
 }
 
 .logo-card img{
   max-width:200px;
   max-height:100px;
-  object-fit:contain;
 }
 
-/* Nitco dark logo fix */
-.dark-logo{
-  background:#000000;
-}
+.dark-logo{background:#000;}
 
-/* IMAGE SLIDES */
+/* ===== SLIDES ===== */
 .slide{
   width:100%;
-  border-radius:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  border-radius:24px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.6);
   opacity:0;
-  transform:translateY(60px);
-  transition:1s ease;
+  transform:translateY(80px);
+  transition:1.2s ease;
 }
 
 .slide.visible{
@@ -114,22 +150,21 @@ p{
   transform:translateY(0);
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px;
+  gap:70px;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:40px;
-  color:#aaaaaa;
-  font-size:14px;
+  padding:50px;
+  color:#aaa;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
   .hero,.contact{
     flex-direction:column;
@@ -141,32 +176,42 @@ footer{
 
 <body>
 
+<!-- BACKGROUND SHAPES -->
+<div class="bg-shape shape-grey"></div>
+<div class="bg-shape shape-grey-2"></div>
+<div class="bg-shape shape-blue"></div>
+<div class="bg-shape shape-brown"></div>
+
 <!-- HERO -->
 <section class="hero">
   <div>
     <h1>PARV MARKETING</h1>
-    <p><b>Tiles • Bathware • Plumbing Pipes</b></p>
+    <p><b>Premium Tiles • Bathware • Plumbing Solutions</b></p>
     <p>
-      Authorized dealer & supplier of premium building materials,
-      trusted by architects, contractors, and homeowners.
+      Supplying architect-approved materials that define modern spaces,
+      trusted by professionals across Indore.
     </p>
   </div>
-  <img src="logo.png" alt="Parv Marketing Logo">
+  <img src="logo.png">
+</section>
+
+<!-- TRUST STRIP -->
+<section style="background:#19191d;text-align:center;">
+  <p style="font-size:18px;">
+    Authorized Dealer • Genuine Products • Project Support • Reliable Supply
+  </p>
 </section>
 
 <!-- BRANDS -->
 <section>
   <h2>Brands We Deal In</h2>
-  <div class="grid brand-logos">
-
+  <div class="grid">
     <div class="card logo-card dark-logo">
-      <img src="images/nitco-logo.png" alt="Nitco Tiles Logo">
+      <img src="images/nitco-logo.png">
     </div>
-
     <div class="card logo-card">
-      <img src="images/birla-logo.png" alt="Birla Pivot Logo">
+      <img src="images/birla-logo.png">
     </div>
-
   </div>
 </section>
 
@@ -181,21 +226,9 @@ footer{
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
-<section>
-  <h2>Who We Work With</h2>
-  <div class="grid">
-    <div class="card">Architects & Interior Designers</div>
-    <div class="card">Residential Homeowners</div>
-    <div class="card">Builders & Contractors</div>
-    <div class="card">Commercial Projects</div>
-  </div>
-</section>
-
-<!-- BIRLA PIVOT -->
+<!-- BIRLA -->
 <section style="background:linear-gradient(135deg,#0f2a44,#123b63);">
   <h2>Birla Pivot Bathware</h2>
-  <p>Premium bathware solutions by Aditya Birla Group</p>
   <div class="grid">
     <img src="images/birla1.jpg" class="slide">
     <img src="images/birla2.jpg" class="slide">
@@ -205,7 +238,6 @@ footer{
 <!-- NITCO -->
 <section style="background:linear-gradient(135deg,#3a1c12,#5a2b1c);">
   <h2>Nitco Tiles Collection</h2>
-  <p>Designer wall & floor tiles for modern interiors</p>
   <div class="grid">
     <img src="images/nitco1.jpg" class="slide">
     <img src="images/nitco2.jpg" class="slide">
@@ -214,25 +246,11 @@ footer{
 
 <!-- PLUMBING -->
 <section style="background:linear-gradient(135deg,#0f3b2a,#145c40);">
-  <h2>Plumbing Pipe Solutions</h2>
-  <p>CPVC • SWR • Long-lasting drainage systems</p>
+  <h2>Plumbing Solutions</h2>
   <div class="grid">
     <img src="images/pipes1.jpg" class="slide">
     <img src="images/pipes2.jpg" class="slide">
   </div>
-</section>
-
-<!-- OUR APPROACH -->
-<section>
-  <h2>Our Approach</h2>
-  <p>
-    At Parv Marketing, we believe building materials are long-term investments.
-    We help clients choose products that balance design, durability, and value.
-  </p>
-  <p>
-    From selection to after-sales support, our focus is transparency,
-    reliability, and long-term relationships.
-  </p>
 </section>
 
 <!-- CONTACT -->
@@ -240,21 +258,12 @@ footer{
   <h2>Contact Us</h2>
   <div class="contact">
     <div>
-      <p><b>Address:</b><br>
-      1, Sarvoday Nagar, Near Sneh Nagar,<br>
-      Opp. Ilva School, Indore, Madhya Pradesh – 452001</p>
-
-      <p><b>Call:</b><br>
-      +91 70673 92277<br>
-      +91 93032 09296</p>
-
+      <p><b>Address:</b><br>1, Sarvoday Nagar, Indore</p>
+      <p><b>Call:</b><br>+91 70673 92277<br>+91 93032 09296</p>
       <p><b>Instagram:</b> @parv.marketing</p>
     </div>
-
-    <iframe
-      src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
-      width="100%" height="280" style="border:0;">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
+      width="100%" height="300" style="border:0;"></iframe>
   </div>
 </section>
 
@@ -262,17 +271,25 @@ footer{
 © Parv Marketing | Indore, Madhya Pradesh
 </footer>
 
-<!-- SCROLL ANIMATION -->
+<!-- SCROLL + PARALLAX -->
 <script>
 const slides=document.querySelectorAll('.slide');
+const shapes=document.querySelectorAll('.bg-shape');
+
 const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');}
   });
-},{threshold:0.2});
-slides.forEach(slide=>observer.observe(slide));
+},{threshold:.2});
+
+slides.forEach(s=>observer.observe(s));
+
+window.addEventListener('scroll',()=>{
+  let y=window.scrollY;
+  shapes.forEach((s,i)=>{
+    s.style.transform=`translateY(${y*0.08*(i+1)}px)`;
+  });
+});
 </script>
 
 </body>
