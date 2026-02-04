@@ -2,185 +2,162 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Parv Marketing | Premium Tiles & Bathware</title>
+<title>Parv Marketing | Premium Building Materials</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- DESIGNER FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- DESIGNER FONTS (CLEARLY DIFFERENT) -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== BASE ===== */
+/* ================= BASE ================= */
 body{
   margin:0;
-  font-family:'Manrope',sans-serif;
-  background:#1c1c20;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:#0f1014;
   color:#eaeaea;
   overflow-x:hidden;
 }
 
-/* ===== ABSTRACT BACKGROUND LAYERS ===== */
-.bg-shape{
-  position:absolute;
+/* ================= ABSTRACT BACKGROUND ================= */
+.abstract{
+  position:fixed;
+  width:700px;
+  height:700px;
   border-radius:50%;
-  filter:blur(120px);
-  opacity:.35;
-  z-index:0;
+  filter:blur(90px);
+  opacity:.6;
+  z-index:-1;
 }
 
-.shape-grey{
-  background:#2f2f36;
-  width:600px;
-  height:600px;
-  top:-200px;
-  left:-200px;
-}
+.a1{background:#2a2a35; top:-200px; left:-200px;}
+.a2{background:#123b63; top:20%; right:-250px;}
+.a3{background:#5a2b1c; top:60%; left:-250px;}
+.a4{background:#145c40; bottom:-200px; right:-200px;}
 
-.shape-grey-2{
-  background:#26262c;
-  width:500px;
-  height:500px;
-  bottom:-200px;
-  right:-150px;
-}
-
-.shape-blue{
-  background:#123b63;
-  width:550px;
-  height:550px;
-  top:20%;
-  right:-200px;
-}
-
-.shape-brown{
-  background:#5a2b1c;
-  width:500px;
-  height:500px;
-  top:55%;
-  left:-200px;
-}
-
-/* ===== SECTION ===== */
+/* ================= SECTIONS ================= */
 section{
-  position:relative;
-  padding:150px 8%;
-  max-width:1200px;
-  margin:120px auto;
-  background:#24242a;
-  border-radius:28px;
-  z-index:1;
+  max-width:1300px;
+  margin:140px auto;
+  padding:140px 9%;
+  background:rgba(30,30,38,.75);
+  backdrop-filter:blur(12px);
+  border-radius:32px;
 }
 
-/* ===== TEXT ===== */
+/* ================= TEXT ================= */
 h1,h2{
-  font-family:'Playfair Display',serif;
-  color:#ffffff;
-  letter-spacing:.6px;
+  font-family:'DM Serif Display',serif;
+  letter-spacing:1px;
 }
 
-h1{font-size:58px;}
-h2{font-size:40px;margin-bottom:25px;}
+h1{font-size:72px;margin:0;}
+h2{font-size:44px;margin-bottom:25px;}
 
 p{
-  font-size:17px;
+  font-size:18px;
   line-height:1.9;
-  color:#d0d0d0;
+  color:#d2d2d2;
 }
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
-  min-height:90vh;
-  display:flex;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
   align-items:center;
-  justify-content:space-between;
-  gap:70px;
+  gap:80px;
+  background:radial-gradient(circle at top left,#1f2029,#0f1014);
+  border-radius:0;
+  max-width:100%;
+  margin:0;
 }
 
 .hero img{
-  max-width:260px;
+  width:280px;
 }
 
-/* ===== GRID ===== */
+/* ================= GRID ================= */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:45px;
 }
 
-/* ===== CARD ===== */
+/* ================= CARDS ================= */
 .card{
-  background:#2f2f36;
-  padding:45px;
-  border-radius:24px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
-  transition:.4s ease;
+  background:linear-gradient(145deg,#2b2c36,#1a1b22);
+  padding:50px;
+  border-radius:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.7);
+  transition:.45s cubic-bezier(.22,1,.36,1);
 }
 
 .card:hover{
-  transform:translateY(-12px) scale(1.02);
+  transform:translateY(-18px) scale(1.03);
 }
 
-/* ===== BRAND LOGOS ===== */
+/* ================= BRAND LOGOS ================= */
 .logo-card{
-  background:#ffffff;
+  background:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:60px;
+  padding:70px;
 }
 
 .logo-card img{
-  max-width:200px;
-  max-height:100px;
+  max-width:220px;
+  max-height:110px;
 }
 
 .dark-logo{background:#000;}
 
-/* ===== SLIDES ===== */
+/* ================= IMAGES ================= */
 .slide{
   width:100%;
-  border-radius:24px;
-  box-shadow:0 25px 60px rgba(0,0,0,0.6);
+  border-radius:28px;
+  box-shadow:0 35px 90px rgba(0,0,0,.8);
   opacity:0;
-  transform:translateY(80px);
-  transition:1.2s ease;
+  transform:scale(.9) translateY(80px);
+  transition:1.2s cubic-bezier(.22,1,.36,1);
 }
 
-.slide.visible{
+.slide.show{
   opacity:1;
-  transform:translateY(0);
+  transform:scale(1) translateY(0);
 }
 
-/* ===== CONTACT ===== */
+/* ================= CONTACT ================= */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:70px;
+  gap:80px;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
-  padding:50px;
+  padding:60px;
   color:#aaa;
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .hero,.contact{
-    flex-direction:column;
-    text-align:center;
-  }
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  h1{font-size:52px;}
+  h2{font-size:34px;}
+  .hero{grid-template-columns:1fr;text-align:center;}
+  .contact{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND SHAPES -->
-<div class="bg-shape shape-grey"></div>
-<div class="bg-shape shape-grey-2"></div>
-<div class="bg-shape shape-blue"></div>
-<div class="bg-shape shape-brown"></div>
+<!-- ABSTRACT BACKGROUND SHAPES -->
+<div class="abstract a1"></div>
+<div class="abstract a2"></div>
+<div class="abstract a3"></div>
+<div class="abstract a4"></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -188,18 +165,16 @@ footer{
     <h1>PARV MARKETING</h1>
     <p><b>Premium Tiles • Bathware • Plumbing Solutions</b></p>
     <p>
-      Supplying architect-approved materials that define modern spaces,
-      trusted by professionals across Indore.
+      A curated building-materials showroom delivering
+      architect-approved products for modern spaces.
     </p>
   </div>
   <img src="logo.png">
 </section>
 
 <!-- TRUST STRIP -->
-<section style="background:#19191d;text-align:center;">
-  <p style="font-size:18px;">
-    Authorized Dealer • Genuine Products • Project Support • Reliable Supply
-  </p>
+<section style="text-align:center;">
+  <p>Authorized Dealer • Genuine Brands • Project Supply • Long-Term Support</p>
 </section>
 
 <!-- BRANDS -->
@@ -217,12 +192,12 @@ footer{
 
 <!-- PRODUCTS -->
 <section>
-  <h2>What We Offer</h2>
+  <h2>Our Product Range</h2>
   <div class="grid">
-    <div class="card">Premium Floor & Wall Tiles</div>
-    <div class="card">Luxury Bathware & Sanitaryware</div>
+    <div class="card">Designer Floor & Wall Tiles</div>
+    <div class="card">Luxury Bathware & Sanitary</div>
     <div class="card">CP Fittings & Accessories</div>
-    <div class="card">CPVC & SWR Plumbing Pipes</div>
+    <div class="card">CPVC & SWR Pipe Systems</div>
   </div>
 </section>
 
@@ -263,7 +238,7 @@ footer{
       <p><b>Instagram:</b> @parv.marketing</p>
     </div>
     <iframe src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
-      width="100%" height="300" style="border:0;"></iframe>
+      width="100%" height="320" style="border:0;"></iframe>
   </div>
 </section>
 
@@ -271,23 +246,20 @@ footer{
 © Parv Marketing | Indore, Madhya Pradesh
 </footer>
 
-<!-- SCROLL + PARALLAX -->
+<!-- SCROLL ANIMATION -->
 <script>
-const slides=document.querySelectorAll('.slide');
-const shapes=document.querySelectorAll('.bg-shape');
-
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');}
+const imgs=document.querySelectorAll('.slide');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{
+    if(i.isIntersecting){i.target.classList.add('show');}
   });
-},{threshold:.2});
-
-slides.forEach(s=>observer.observe(s));
+},{threshold:.25});
+imgs.forEach(i=>obs.observe(i));
 
 window.addEventListener('scroll',()=>{
-  let y=window.scrollY;
-  shapes.forEach((s,i)=>{
-    s.style.transform=`translateY(${y*0.08*(i+1)}px)`;
+  const y=window.scrollY;
+  document.querySelectorAll('.abstract').forEach((el,i)=>{
+    el.style.transform=`translateY(${y*0.18*(i+1)}px)`;
   });
 });
 </script>
