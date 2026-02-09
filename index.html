@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>PARV MARKETING | Premium Tiles & Bathware</title>
@@ -17,7 +18,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 
-/* ===== GLOBAL BACKGROUND ===== */
+/* ===== BACKGROUND (UNCHANGED) ===== */
 body{
   font-family:'Inter',sans-serif;
   color:#eaeaea;
@@ -43,11 +44,10 @@ body{
 .bg2{background:#2e3550;top:30%;right:-300px}
 .bg3{background:#1f2435;bottom:-300px;left:20%}
 
-/* ===== TOP NAV ===== */
-.top-nav{
+/* ===== TOP NAV (NEW) ===== */
+nav{
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
   padding:18px 6%;
   display:flex;
@@ -57,24 +57,26 @@ body{
   backdrop-filter:blur(12px);
   z-index:1000;
 }
-.brand-name{
+
+nav .brand{
   font-family:'Syne',sans-serif;
   font-size:14px;
   letter-spacing:1px;
 }
-.nav-tabs{
+
+nav .tabs{
   display:flex;
   gap:22px;
-  flex-wrap:nowrap;
 }
-.nav-tabs a{
+
+nav .tabs a{
   color:#eaeaea;
   text-decoration:none;
   font-size:13px;
   white-space:nowrap;
   opacity:.85;
 }
-.nav-tabs a:hover{opacity:1}
+nav .tabs a:hover{opacity:1}
 
 /* SECTIONS */
 section{
@@ -178,15 +180,12 @@ footer{
 <div class="bg bg3"></div>
 
 <!-- NAV -->
-<nav class="top-nav">
-  <div class="brand-name">PARV MARKETING</div>
-  <div class="nav-tabs">
-    <a href="#brands">BRANDS</a>
-    <a href="#birla">BIRLA</a>
-    <a href="#nitco">NITCO</a>
-    <a href="#plumbing">PLUMBING</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
+<nav>
+  <div class="brand">PARV MARKETING</div>
+  <div class="tabs">
+    <a href="products.html">PRODUCTS</a>
+    <a href="#about">ABOUT US</a>
+    <a href="#contact">CONTACT US</a>
   </div>
 </nav>
 
@@ -203,7 +202,7 @@ footer{
 </section>
 
 <!-- OUR BRANDS -->
-<section id="brands">
+<section>
   <h2>Our Brands</h2>
   <div class="grid">
     <div class="logo dark"><img src="images/nitco-logo.png"></div>
@@ -212,7 +211,7 @@ footer{
 </section>
 
 <!-- BIRLA -->
-<section id="birla">
+<section>
   <h2>Birla Pivot Bathware</h2>
   <div class="grid">
     <img src="images/birla1.jpg" class="image">
@@ -221,7 +220,7 @@ footer{
 </section>
 
 <!-- NITCO -->
-<section id="nitco">
+<section>
   <h2>Nitco Tiles Collection</h2>
   <div class="grid">
     <img src="images/nitco1.jpg" class="image">
@@ -230,7 +229,7 @@ footer{
 </section>
 
 <!-- PLUMBING -->
-<section id="plumbing">
+<section>
   <h2>Plumbing Pipe Systems</h2>
   <div class="grid">
     <img src="images/pipes1.jpg" class="image">
