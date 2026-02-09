@@ -29,7 +29,7 @@ nav a{
   color:#eaeaea;
   text-decoration:none;
   font-size:14px;
-  opacity:.8;
+  opacity:.85;
 }
 
 /* WRAPPER */
@@ -47,8 +47,6 @@ nav a{
   gap:80px;
   align-items:center;
 }
-
-/* BRAND CARD */
 .brand{
   text-align:center;
   cursor:pointer;
@@ -64,7 +62,7 @@ nav a{
   margin:auto;
 }
 
-/* CONTENT SECTIONS */
+/* SECTIONS */
 .section{
   display:none;
   margin-top:120px;
@@ -150,12 +148,7 @@ nav a{
   <!-- BIRLA -->
   <div id="birla" class="section">
     <h2>Birla Pivot Collection</h2>
-    <div class="grid">
-      <img src="images/cp/10.jpg" class="image">
-      <img src="images/cp/11.jpg" class="image">
-      <img src="images/cp/12.jpg" class="image">
-      <img src="images/cp/24.jpg" class="image">
-    </div>
+    <div class="grid" id="birlaGrid"></div>
   </div>
 
 </div>
@@ -172,7 +165,24 @@ function showBirla(){
   document.getElementById("birla").scrollIntoView({behavior:"smooth"});
 }
 
-gsap.utils.toArray(".image").forEach(img=>{
+/* AUTO LOAD ALL BIRLA IMAGES (NO RENAME) */
+const birlaImages = [
+  "10.jpg","11.jpg","12.jpg","24.jpg","43.jpg","58.jpg","59.jpg","76.jpg",
+  "86.jpg","98.jpg","108.jpg","135.jpg","151.jpg","164.jpg","186.jpg","199.jpg",
+  "208.jpg","218.jpg","238.jpg","259.jpg","276.jpg","289.jpg","299.jpg","319.jpg",
+  "340.jpg","350.jpg","387.jpg","392.jpg","412.jpg","416.jpg","422.jpg","445.jpg",
+  "452.jpg","461.jpg","478.jpg","490.jpg","511.jpg","523.jpg","535.jpg","555.jpg",
+  "556.jpg","566.jpg"
+];
+
+const grid = document.getElementById("birlaGrid");
+
+birlaImages.forEach(name=>{
+  const img=document.createElement("img");
+  img.src=`images/cp/${name}`;
+  img.className="image";
+  grid.appendChild(img);
+
   gsap.from(img,{
     scrollTrigger:{trigger:img,start:"top 85%"},
     opacity:0,
