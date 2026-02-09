@@ -13,7 +13,6 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
   background:#0e0f13;
@@ -21,7 +20,6 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV */
 nav{
   padding:20px 6%;
 }
@@ -32,9 +30,7 @@ nav a{
   opacity:.85;
 }
 
-/* WRAPPER */
 .wrapper{
-  min-height:100vh;
   padding:120px 8%;
   max-width:1400px;
   margin:auto;
@@ -56,7 +52,7 @@ nav a{
   margin-bottom:22px;
 }
 .brand p{
-  font-size:clamp(15px,2.4vw,18px);
+  font-size:16px;
   opacity:.85;
   max-width:420px;
   margin:auto;
@@ -69,8 +65,23 @@ nav a{
 }
 .section h2{
   font-family:'Syne',sans-serif;
-  font-size:clamp(28px,4.5vw,46px);
-  margin-bottom:40px;
+  font-size:42px;
+  margin-bottom:60px;
+}
+
+/* BIRLA GALLERY */
+.birla-gallery{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:140px;
+}
+.birla-img{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  border-radius:30px;
+  box-shadow:0 60px 160px rgba(0,0,0,.85);
+  transform-origin:center;
 }
 
 /* NITCO */
@@ -87,22 +98,11 @@ nav a{
 .card a{
   color:#eaeaea;
   text-decoration:none;
-  font-size:16px;
 }
 
-/* BIRLA IMAGES */
-.image{
-  width:100%;
-  border-radius:26px;
-  box-shadow:0 40px 120px rgba(0,0,0,.7);
-}
-
-/* MOBILE */
 @media(max-width:900px){
-  .brands{
-    grid-template-columns:1fr;
-    gap:100px;
-  }
+  .brands{grid-template-columns:1fr;gap:100px}
+  .birla-gallery{gap:90px}
 }
 </style>
 </head>
@@ -118,25 +118,19 @@ nav a{
   <!-- BRAND SELECT -->
   <div class="brands">
     <div class="brand" onclick="showNitco()">
-      <img src="images/nitco-logo.png" alt="Nitco Tiles">
-      <p>
-        Premium tile solutions including GVT, Full Body and designer series
-        crafted for durability and architectural elegance.
-      </p>
+      <img src="images/nitco-logo.png">
+      <p>Premium tiles designed for modern architectural spaces.</p>
     </div>
 
     <div class="brand" onclick="showBirla()">
-      <img src="images/birla-pivot-logo.png" alt="Birla Pivot Bathware">
-      <p>
-        Contemporary bathware and CP fittings designed with precision,
-        performance and modern aesthetics.
-      </p>
+      <img src="images/birla-pivot-logo.png">
+      <p>Luxury bathware and fittings with refined finish.</p>
     </div>
   </div>
 
   <!-- NITCO -->
   <div id="nitco" class="section">
-    <h2>Nitco Tile Collections</h2>
+    <h2>Nitco Tile Catalogues</h2>
     <div class="grid">
       <div class="card"><a href="pdfs/nitco-gvt-tiles.pdf" target="_blank">GVT Tiles</a></div>
       <div class="card"><a href="pdfs/nitco-full-body-tiles.pdf" target="_blank">Full Body Tiles</a></div>
@@ -147,13 +141,15 @@ nav a{
 
   <!-- BIRLA -->
   <div id="birla" class="section">
-    <h2>Birla Pivot Collection</h2>
-    <div class="grid" id="birlaGrid"></div>
+    <h2>Birla Pivot Bathware</h2>
+    <div class="birla-gallery" id="birlaGallery"></div>
   </div>
 
 </div>
 
 <script>
+gsap.registerPlugin(ScrollTrigger);
+
 function showNitco(){
   document.getElementById("nitco").style.display="block";
   document.getElementById("birla").style.display="none";
@@ -165,41 +161,42 @@ function showBirla(){
   document.getElementById("birla").scrollIntoView({behavior:"smooth"});
 }
 
-/* ===== AUTO LOAD ALL BIRLA IMAGES (NO RENAME, ALL EXTENSIONS) ===== */
-
-const birlaImageNumbers = [
-  10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,199,208,218,
-  238,259,276,289,299,319,340,350,387,392,412,416,422,445,452,
-  461,478,490,511,523,535,555,556,566
+/* AUTO LOAD ALL BIRLA IMAGES (ROOT images folder) */
+const birlaImages = [
+  "birla1","birla2",
+  10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,
+  199,208,218,238,259,276,289,299,319,340,350,387,
+  392,412,416,422,445,452,461,478,490,511,523,535,
+  555,556,566
 ];
 
-const extensions = ["jpg","JPG","jpeg","JPEG"];
-const grid = document.getElementById("birlaGrid");
+const exts = ["jpg","JPG","jpeg","JPEG","png","PNG","webp","WEBP"];
+const gallery = document.getElementById("birlaGallery");
 
-birlaImageNumbers.forEach(num=>{
-  const img = document.createElement("img");
-  img.className = "image";
+birlaImages.forEach(file=>{
+  const img=document.createElement("img");
+  img.className="birla-img";
 
-  let extIndex = 0;
-  const tryLoad = () => {
-    if(extIndex >= extensions.length){
-      img.remove(); // agar kuch bhi match nahi hua
-      return;
-    }
-    img.src = `images/cp/${num}.${extensions[extIndex]}`;
-    extIndex++;
+  let i=0;
+  const tryLoad=()=>{
+    if(i>=exts.length){img.remove();return;}
+    img.src=`images/${file}.${exts[i++]}`;
   };
-
-  img.onerror = tryLoad;
+  img.onerror=tryLoad;
   tryLoad();
 
-  grid.appendChild(img);
+  gallery.appendChild(img);
 
   gsap.from(img,{
-    scrollTrigger:{trigger:img,start:"top 85%"},
+    scrollTrigger:{
+      trigger:img,
+      start:"top 85%",
+      end:"bottom 60%",
+      scrub:true
+    },
     opacity:0,
-    scale:.85,
-    duration:1.2,
+    scale:0.85,
+    y:120,
     ease:"power3.out"
   });
 });
