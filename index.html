@@ -2,327 +2,112 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔒 MOBILE ZOOM FIX -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>PARV MARKETING | Premium Tiles & Bathware</title>
 
-<!-- PREMIUM FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Syne:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
   font-family:'Inter',sans-serif;
   background:#0e0f13;
   color:#eaeaea;
   overflow-x:hidden;
-  max-width:100vw;
 }
 
-/* ================= BACKGROUND BLOBS ================= */
-.bg{
+/* NAVBAR */
+nav{
   position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  filter:blur(120px);
-  opacity:.45;
-  z-index:-1;
-}
-.bg1{background:#2c2c32;top:-300px;left:-300px}
-.bg2{background:#3b3b44;top:30%;right:-300px}
-.bg3{background:#4a2f5c;top:60%;left:-300px} /* Birla purple */
-
-/* ================= SECTIONS ================= */
-section{
-  padding:160px 10%;
-  position:relative;
+  top:0;left:0;
   width:100%;
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:999;
+  background:rgba(14,15,19,.55);
+  backdrop-filter:blur(10px);
 }
+nav a{
+  color:#eaeaea;
+  text-decoration:none;
+  margin-left:40px;
+  font-weight:500;
+  font-size:15px;
+}
+nav a:hover{opacity:.7}
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   align-items:center;
-  gap:60px;
+  padding:140px 10%;
 }
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:96px;
+  font-size:90px;
   letter-spacing:6px;
-  line-height:1.05;
 }
 .hero p{
   font-size:22px;
-  max-width:560px;
   margin-top:25px;
+  max-width:520px;
   opacity:.85;
 }
-.hero img{
-  width:320px;
-}
+.hero img{width:300px}
 
-/* ================= HEADINGS ================= */
-h2{
-  font-family:'Syne',sans-serif;
-  font-size:56px;
-  margin-bottom:50px;
-}
-
-/* ================= GRID ================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:70px;
-}
-
-/* ================= CARDS ================= */
-.card{
-  background:linear-gradient(145deg,#1b1c22,#262733);
-  padding:70px;
-  border-radius:36px;
-  box-shadow:0 50px 140px rgba(0,0,0,.7);
-}
-
-/* ================= LOGOS ================= */
-.logo{
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.logo.dark{background:#000}
-.logo img{max-width:240px}
-
-/* ================= IMAGES ================= */
-.image{
-  width:100%;
-  border-radius:40px;
-  box-shadow:0 60px 160px rgba(0,0,0,.85);
-}
-
-/* ================= BIRLA ================= */
-.birla{
-  background:radial-gradient(circle at top right,#4a2f5c,#121217);
-  border-radius:60px;
-}
-
-/* ================= CONTACT ================= */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:90px;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   text-align:center;
-  padding:90px 20px;
-  opacity:.6;
+  padding:80px 20px;
+  opacity:.5;
 }
 
-/* ================================================= */
-/* ================= MOBILE FIX ==================== */
-/* ================================================= */
 @media(max-width:900px){
-
-  section{
-    padding:90px 6vw;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
   .hero{
     grid-template-columns:1fr;
     text-align:center;
-    justify-items:center;
   }
-
-  .hero > div{
-    max-width:520px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero h1{
-    font-size:58px;
-    letter-spacing:3px;
-  }
-
-  .hero p{
-    font-size:18px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero img{
-    width:220px;
-    margin:40px auto 0;
-  }
-
-  h2{
-    font-size:38px;
-    margin-bottom:30px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .card{
-    padding:45px;
-    border-radius:28px;
-  }
-
-  .image{
-    border-radius:28px;
-  }
-
-  .contact{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
-
-  iframe{
-    height:260px;
-  }
-
-  /* reduce zoom illusion on mobile */
-  .bg{
-    width:500px;
-    height:500px;
-    filter:blur(160px);
-    opacity:.3;
-  }
+  .hero h1{font-size:56px}
+  nav{padding:20px 6%}
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
-<div class="bg bg1"></div>
-<div class="bg bg2"></div>
-<div class="bg bg3"></div>
+<nav>
+  <strong>PARV MARKETING</strong>
+  <div>
+    <a href="products.html">PRODUCTS</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+</nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
-    <h1>
-      <span>PARV</span><br>
-      <span>MARKETING</span>
-    </h1>
+    <h1>PARV<br>MARKETING</h1>
     <p>
-      Premium tiles, bathware & plumbing materials curated for architects and modern spaces.
+      Premium tiles, bathware & plumbing materials curated for architects
+      and refined modern spaces.
     </p>
   </div>
-  <img src="logo.png" alt="Parv Marketing Logo" class="hero-logo">
-</section>
-
-<!-- BRANDS -->
-<section>
-  <h2>Brands We Deal In</h2>
-  <div class="grid">
-    <div class="card logo dark"><img src="images/nitco-logo.png"></div>
-    <div class="card logo"><img src="images/birla-logo.png"></div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section>
-  <h2>Our Product Universe</h2>
-  <div class="grid">
-    <div class="card">Luxury Tiles & Surfaces</div>
-    <div class="card">Designer Bathware</div>
-    <div class="card">CP Fittings</div>
-    <div class="card">CPVC & SWR Pipe Systems</div>
-  </div>
-</section>
-
-<!-- BIRLA -->
-<section class="birla">
-  <h2>Birla Pivot Bathware</h2>
-  <div class="grid">
-    <img src="images/birla1.jpg" class="image">
-    <img src="images/birla2.jpg" class="image">
-  </div>
-</section>
-
-<!-- NITCO -->
-<section>
-  <h2>Nitco Tiles Collection</h2>
-  <div class="grid">
-    <img src="images/nitco1.jpg" class="image">
-    <img src="images/nitco2.jpg" class="image">
-  </div>
-</section>
-
-<!-- PLUMBING -->
-<section>
-  <h2>Plumbing Pipe Systems</h2>
-  <div class="grid">
-    <img src="images/pipes1.jpg" class="image">
-    <img src="images/pipes2.jpg" class="image">
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section>
-  <h2>Contact</h2>
-  <div class="contact">
-    <div>
-      <p>1, Sarvoday Nagar, Indore</p>
-      <p>+91 70673 92277<br>+91 93032 09296</p>
-      <p>@parv.marketing</p>
-    </div>
-    <iframe src="https://www.google.com/maps?q=Ilva%20School%20Indore&output=embed"
-      width="100%" height="360" style="border:0;"></iframe>
-  </div>
+  <img src="logo.png" alt="Parv Marketing">
 </section>
 
 <footer>© Parv Marketing | Indore</footer>
 
 <script>
-gsap.registerPlugin(ScrollTrigger);
-
-/* HERO */
-gsap.from(".hero h1 span",{y:120,opacity:0,stagger:.15,duration:1.4,ease:"power4.out"});
-gsap.from(".hero p",{opacity:0,y:40,delay:.8});
-gsap.from(".hero-logo",{opacity:0,scale:.85,delay:1});
-
-/* CARDS */
-gsap.utils.toArray(".card").forEach(card=>{
-  gsap.from(card,{
-    scrollTrigger:{trigger:card,start:"top 80%"},
-    y:120,opacity:0,duration:1.2,ease:"power3.out"
-  });
-});
-
-/* IMAGES */
-gsap.utils.toArray(".image").forEach(img=>{
-  gsap.from(img,{
-    scrollTrigger:{trigger:img,start:"top 85%"},
-    scale:.85,opacity:0,duration:1.4,ease:"power3.out"
-  });
-});
-
-/* BACKGROUND PARALLAX (DESKTOP ONLY) */
-if(window.innerWidth>900){
-  gsap.to(".bg1",{y:300,scrollTrigger:{scrub:1}});
-  gsap.to(".bg2",{y:-300,scrollTrigger:{scrub:1}});
-  gsap.to(".bg3",{y:400,scrollTrigger:{scrub:1}});
-}
+gsap.from(".hero h1",{y:120,opacity:0,duration:1.4,ease:"power4.out"});
+gsap.from(".hero p",{opacity:0,y:40,delay:.6});
+gsap.from(".hero img",{opacity:0,scale:.9,delay:1});
 </script>
 
 </body>
