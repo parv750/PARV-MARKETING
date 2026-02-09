@@ -81,7 +81,6 @@ nav a{
   margin:auto;
   border-radius:30px;
   box-shadow:0 60px 160px rgba(0,0,0,.85);
-  transform-origin:center;
 }
 
 /* NITCO */
@@ -161,9 +160,8 @@ function showBirla(){
   document.getElementById("birla").scrollIntoView({behavior:"smooth"});
 }
 
-/* AUTO LOAD ALL BIRLA IMAGES (ROOT images folder) */
-const birlaImages = [
-  "birla1","birla2",
+/* 🔥 ONLY NUMBERED BIRLA IMAGES (NO birla1 / birla2) */
+const birlaNumbers = [
   10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,
   199,208,218,238,259,276,289,299,319,340,350,387,
   392,412,416,422,445,452,461,478,490,511,523,535,
@@ -173,14 +171,14 @@ const birlaImages = [
 const exts = ["jpg","JPG","jpeg","JPEG","png","PNG","webp","WEBP"];
 const gallery = document.getElementById("birlaGallery");
 
-birlaImages.forEach(file=>{
+birlaNumbers.forEach(num=>{
   const img=document.createElement("img");
   img.className="birla-img";
 
   let i=0;
   const tryLoad=()=>{
     if(i>=exts.length){img.remove();return;}
-    img.src=`images/${file}.${exts[i++]}`;
+    img.src=`images/cp/${num}.${exts[i++]}`;
   };
   img.onerror=tryLoad;
   tryLoad();
