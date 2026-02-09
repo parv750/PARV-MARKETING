@@ -14,12 +14,32 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
+/* ===== GLOBAL BACKGROUND ===== */
 body{
   font-family:'Inter',sans-serif;
-  background:#0e0f13;
   color:#eaeaea;
   overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 20%, #3b2f4a 0%, transparent 45%),
+    radial-gradient(circle at 90% 30%, #2c3340 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, #1f2430 0%, transparent 55%),
+    #0e0f13;
 }
+
+/* ABSTRACT BLOBS */
+.bg{
+  position:fixed;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:.35;
+  z-index:-1;
+}
+.bg1{background:#4a2f5c;top:-250px;left:-250px}
+.bg2{background:#2e3550;top:30%;right:-250px}
+.bg3{background:#1f2435;bottom:-250px;left:20%}
 
 /* NAV */
 nav{
@@ -30,29 +50,16 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(14,15,19,.65);
-  backdrop-filter:blur(10px);
+  background:rgba(14,15,19,.55);
+  backdrop-filter:blur(12px);
   z-index:1000;
 }
-
-/* LEFT BRAND */
-nav strong{
-  font-size:14px;
-  white-space:nowrap;
-}
-
-/* RIGHT LINKS */
-.nav-links{
-  display:flex;
-  gap:18px;
-  flex-wrap:nowrap;   /* 🔥 KEY FIX */
-}
-
+.nav-links{display:flex;gap:18px;flex-wrap:nowrap}
 .nav-links a{
   color:#eaeaea;
   text-decoration:none;
   font-size:13px;
-  white-space:nowrap; /* 🔥 KEY FIX */
+  white-space:nowrap;
 }
 
 /* SECTION */
@@ -80,21 +87,36 @@ section{
   max-width:520px;
   opacity:.85;
 }
-.hero img{
-  width:clamp(200px,30vw,320px);
+.hero img{width:clamp(200px,30vw,320px)}
+
+/* GRID + IMAGES */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:50px;
+}
+.image{
+  width:100%;
+  border-radius:28px;
+  box-shadow:0 40px 120px rgba(0,0,0,.85);
 }
 
-/* MOBILE */
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+iframe{width:100%;height:320px;border:0;border-radius:22px}
+
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
+  .hero{grid-template-columns:1fr;text-align:center}
+  .contact{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
 
 <nav>
   <strong>PARV MARKETING</strong>
@@ -113,19 +135,50 @@ section{
   <img src="logo.png">
 </section>
 
+<section>
+  <h2>Our Brands</h2>
+  <div class="grid">
+    <div class="image"><img src="images/nitco-logo.png" style="max-width:220px"></div>
+    <div class="image"><img src="images/birla-pivot-logo.png" style="max-width:220px"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Birla Pivot Bathware</h2>
+  <div class="grid">
+    <img src="images/birla1.jpg" class="image">
+    <img src="images/birla2.jpg" class="image">
+  </div>
+</section>
+
 <section id="about">
   <h2>About Us</h2>
   <p>
     Parv Marketing is a premium building materials showroom focused on quality,
-    trust and long-term value.
+    reliability and long-term value.
   </p>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>1, Sarvoday Nagar, Indore</p>
-  <p>+91 70673 92277 | +91 93032 09296</p>
+  <div class="contact">
+    <div>
+      <p>1, Sarvoday Nagar, Indore</p>
+      <p>+91 70673 92277<br>+91 93032 09296</p>
+    </div>
+    <iframe src="https://www.google.com/maps?q=Sarvoday%20Nagar%20Indore&output=embed"></iframe>
+  </div>
 </section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray(".image").forEach(img=>{
+  gsap.from(img,{
+    scrollTrigger:{trigger:img,start:"top 85%"},
+    opacity:0,scale:.88,duration:1.2,ease:"power3.out"
+  });
+});
+</script>
 
 </body>
 </html>
