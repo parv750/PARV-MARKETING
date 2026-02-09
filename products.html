@@ -6,10 +6,8 @@
 
 <title>Products | Parv Marketing</title>
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -28,7 +26,6 @@ body{
     #0e0f13;
 }
 
-/* NAV */
 nav{
   padding:22px 6%;
 }
@@ -39,14 +36,12 @@ nav a{
   opacity:.8;
 }
 
-/* WRAPPER */
 .wrapper{
   padding:120px 8%;
   max-width:1400px;
   margin:auto;
 }
 
-/* LOGO SELECT */
 .select{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -69,7 +64,6 @@ nav a{
   margin-right:auto;
 }
 
-/* SECTIONS */
 .section{
   display:none;
   margin-top:140px;
@@ -80,7 +74,6 @@ nav a{
   margin-bottom:70px;
 }
 
-/* BIRLA IMAGES */
 .birla-gallery{
   display:grid;
   grid-template-columns:1fr;
@@ -94,7 +87,6 @@ nav a{
   box-shadow:0 60px 160px rgba(0,0,0,.85);
 }
 
-/* NITCO PDF CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -126,7 +118,7 @@ nav a{
 
 <div class="wrapper">
 
-  <!-- LOGO SELECT -->
+  <!-- BRAND SELECT -->
   <div class="select">
     <div class="brand" onclick="openNitco()">
       <img src="images/nitco-logo.png">
@@ -143,10 +135,18 @@ nav a{
   <div id="nitco" class="section">
     <h2>Nitco Tile Catalogues</h2>
     <div class="grid">
-      <div class="card"><a href="pdfs/nitco-gvt.pdf" target="_blank">GVT Tiles</a></div>
-      <div class="card"><a href="pdfs/nitco-full-body.pdf" target="_blank">Full Body Tiles</a></div>
-      <div class="card"><a href="pdfs/nitco-natura.pdf" target="_blank">Natura Series</a></div>
-      <div class="card"><a href="pdfs/nitco-kratos.pdf" target="_blank">Kratos Series</a></div>
+      <div class="card">
+        <a href="pdfs/nitco-gvt.pdf.pdf" target="_blank">GVT Tiles</a>
+      </div>
+      <div class="card">
+        <a href="pdfs/nitco-full-body.pdf.pdf" target="_blank">Full Body Tiles</a>
+      </div>
+      <div class="card">
+        <a href="pdfs/nitco-natura.pdf.pdf" target="_blank">Natura Series</a>
+      </div>
+      <div class="card">
+        <a href="pdfs/nitco-kratos.pdf.pdf" target="_blank">Kratos Series</a>
+      </div>
     </div>
   </div>
 
@@ -173,7 +173,7 @@ function openBirla(){
   document.getElementById("birla").scrollIntoView({behavior:"smooth"});
 }
 
-/* LOAD ALL images from images/cp/ (numbered files only) */
+/* BIRLA IMAGES */
 const birlaNumbers = [
   10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,
   199,208,218,238,259,276,289,299,319,340,350,387,
