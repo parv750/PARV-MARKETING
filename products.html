@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- MOBILE FIX -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Products | Parv Marketing</title>
 
-<title>PARV MARKETING | Premium Tiles & Bathware</title>
-
-<!-- ORIGINAL PREMIUM FONTS (DO NOT TOUCH) -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Syne:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -30,216 +28,186 @@ body{
     #0e0f13;
 }
 
-/* BACKGROUND BLOBS */
-.bg{
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  filter:blur(140px);
-  opacity:.35;
-  z-index:-1;
+/* NAV */
+nav{
+  padding:22px 6%;
 }
-.bg1{background:#4a2f5c;top:-300px;left:-300px}
-.bg2{background:#2e3550;top:30%;right:-300px}
-.bg3{background:#1f2435;bottom:-300px;left:20%}
+nav a{
+  color:#eaeaea;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.8;
+}
 
-/* SECTIONS */
-section{
-  padding:160px 10%;
+/* WRAPPER */
+.wrapper{
+  padding:120px 8%;
   max-width:1400px;
   margin:auto;
 }
 
-/* HERO */
-.hero{
-  min-height:100vh;
+/* LOGO SELECT */
+.select{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
+  grid-template-columns:1fr 1fr;
+  gap:120px;
   align-items:center;
-  gap:60px;
 }
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:96px;
-  letter-spacing:6px;
-  line-height:1.05;
+.brand{
+  text-align:center;
+  cursor:pointer;
 }
-.hero p{
-  font-size:22px;
-  max-width:560px;
+.brand img{
+  width:clamp(220px,30vw,300px);
+}
+.brand p{
   margin-top:25px;
-  opacity:.85;
+  opacity:.8;
+  font-size:16px;
+  max-width:420px;
+  margin-left:auto;
+  margin-right:auto;
 }
-.hero img{width:320px}
 
-/* HEADINGS */
-h2{
+/* SECTIONS */
+.section{
+  display:none;
+  margin-top:140px;
+}
+.section h2{
   font-family:'Syne',sans-serif;
-  font-size:56px;
-  margin-bottom:50px;
+  font-size:44px;
+  margin-bottom:70px;
 }
 
-/* GRID */
-.grid{
+/* BIRLA IMAGES */
+.birla-gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:70px;
+  grid-template-columns:1fr;
+  gap:120px;
 }
-
-/* BRAND LOGOS — CENTER FIX */
-.logo{
-  background:#fff;
-  border-radius:36px;
-  padding:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.logo.dark{background:#000}
-.logo img{
-  max-width:240px;
-  display:block;
-  margin:auto;
-}
-
-/* IMAGES */
-.image{
+.birla-img{
   width:100%;
-  border-radius:40px;
+  max-width:680px;
+  margin:auto;
+  border-radius:30px;
   box-shadow:0 60px 160px rgba(0,0,0,.85);
 }
 
-/* CONTACT */
-.contact{
+/* NITCO PDF CARDS */
+.grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:90px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
 }
-iframe{
-  width:100%;
-  height:360px;
-  border:0;
-  border-radius:28px;
+.card{
+  background:linear-gradient(145deg,#1b1c22,#262733);
+  padding:40px;
+  border-radius:26px;
 }
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:90px 20px;
-  opacity:.6;
+.card a{
+  color:#eaeaea;
+  text-decoration:none;
+  font-size:16px;
 }
 
-/* MOBILE */
 @media(max-width:900px){
-  section{padding:100px 6vw}
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-  .hero img{margin:40px auto 0}
-  .hero h1{font-size:58px;letter-spacing:3px}
-  h2{font-size:38px}
-  .grid{grid-template-columns:1fr;gap:40px}
-  .contact{grid-template-columns:1fr}
+  .select{grid-template-columns:1fr;gap:100px}
+  .birla-gallery{gap:80px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg bg1"></div>
-<div class="bg bg2"></div>
-<div class="bg bg3"></div>
+<nav>
+  <a href="index.html">← Back to Home</a>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>PARV<br>MARKETING</h1>
-    <p>
-      Premium tiles, bathware & plumbing materials curated for architects
-      and modern living spaces.
-    </p>
-  </div>
-  <img src="logo.png" alt="Parv Marketing Logo">
-</section>
+<div class="wrapper">
 
-<!-- OUR BRANDS -->
-<section>
-  <h2>Our Brands</h2>
-  <div class="grid">
-    <div class="logo dark">
-      <img src="images/nitco-logo.png" alt="Nitco">
+  <!-- LOGO SELECT -->
+  <div class="select">
+    <div class="brand" onclick="openNitco()">
+      <img src="images/nitco-logo.png">
+      <p>Explore Nitco tile collections category-wise.</p>
     </div>
-    <div class="logo">
-      <img src="images/birla-pivot-logo.png" alt="Birla Pivot">
+
+    <div class="brand" onclick="openBirla()">
+      <img src="images/birla-pivot-logo.png">
+      <p>Discover premium Birla Pivot bathware designs.</p>
     </div>
   </div>
-</section>
 
-<!-- BIRLA -->
-<section>
-  <h2>Birla Pivot Bathware</h2>
-  <div class="grid">
-    <img src="images/birla1.jpg" class="image">
-    <img src="images/birla2.jpg" class="image">
-  </div>
-</section>
-
-<!-- NITCO (RESTORED) -->
-<section>
-  <h2>Nitco Tiles Collection</h2>
-  <div class="grid">
-    <img src="images/nitco1.jpg" class="image">
-    <img src="images/nitco2.jpg" class="image">
-  </div>
-</section>
-
-<!-- PLUMBING (RESTORED) -->
-<section>
-  <h2>Plumbing Pipe Systems</h2>
-  <div class="grid">
-    <img src="images/pipes1.jpg" class="image">
-    <img src="images/pipes2.jpg" class="image">
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section>
-  <h2>About Us</h2>
-  <p>
-    Parv Marketing is a premium building materials showroom focused on quality,
-    reliability and long-term value. We work closely with architects,
-    contractors and homeowners to deliver trusted solutions.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<section>
-  <h2>Contact Us</h2>
-  <div class="contact">
-    <div>
-      <p>1, Sarvoday Nagar, Indore</p>
-      <p>+91 70673 92277<br>+91 93032 09296</p>
-      <p>@parv.marketing</p>
+  <!-- NITCO -->
+  <div id="nitco" class="section">
+    <h2>Nitco Tile Catalogues</h2>
+    <div class="grid">
+      <div class="card"><a href="pdfs/nitco-gvt.pdf" target="_blank">GVT Tiles</a></div>
+      <div class="card"><a href="pdfs/nitco-full-body.pdf" target="_blank">Full Body Tiles</a></div>
+      <div class="card"><a href="pdfs/nitco-natura.pdf" target="_blank">Natura Series</a></div>
+      <div class="card"><a href="pdfs/nitco-kratos.pdf" target="_blank">Kratos Series</a></div>
     </div>
-    <iframe src="https://www.google.com/maps?q=Sarvoday%20Nagar%20Indore&output=embed"></iframe>
   </div>
-</section>
 
-<footer>© Parv Marketing | Indore</footer>
+  <!-- BIRLA -->
+  <div id="birla" class="section">
+    <h2>Birla Pivot Bathware</h2>
+    <div class="birla-gallery" id="birlaGallery"></div>
+  </div>
+
+</div>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".hero h1 span",{y:120,opacity:0,stagger:.15,duration:1.4,ease:"power4.out"});
-gsap.from(".hero p",{opacity:0,y:40,delay:.8});
-gsap.utils.toArray(".logo,.image").forEach(el=>{
-  gsap.from(el,{
-    scrollTrigger:{trigger:el,start:"top 85%"},
+function openNitco(){
+  document.getElementById("nitco").style.display="block";
+  document.getElementById("birla").style.display="none";
+  document.getElementById("nitco").scrollIntoView({behavior:"smooth"});
+}
+
+function openBirla(){
+  document.getElementById("birla").style.display="block";
+  document.getElementById("nitco").style.display="none";
+  document.getElementById("birla").scrollIntoView({behavior:"smooth"});
+}
+
+/* LOAD ALL images from images/cp/ (numbered files only) */
+const birlaNumbers = [
+  10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,
+  199,208,218,238,259,276,289,299,319,340,350,387,
+  392,412,416,422,445,452,461,478,490,511,523,535,
+  555,556,566
+];
+
+const exts = ["jpg","jpeg","png","webp","JPG","JPEG","PNG","WEBP"];
+const gallery = document.getElementById("birlaGallery");
+
+birlaNumbers.forEach(num=>{
+  const img=document.createElement("img");
+  img.className="birla-img";
+
+  let i=0;
+  const tryLoad=()=>{
+    if(i>=exts.length){img.remove();return;}
+    img.src=`images/cp/${num}.${exts[i++]}`;
+  };
+  img.onerror=tryLoad;
+  tryLoad();
+
+  gallery.appendChild(img);
+
+  gsap.from(img,{
+    scrollTrigger:{
+      trigger:img,
+      start:"top 85%",
+      end:"bottom 60%",
+      scrub:true
+    },
     opacity:0,
-    scale:.88,
-    duration:1.2,
+    scale:.9,
+    y:120,
     ease:"power3.out"
   });
 });
