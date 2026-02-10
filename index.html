@@ -44,7 +44,7 @@ body{
 .bg2{background:#2e3550;top:30%;right:-300px}
 .bg3{background:#1f2435;bottom:-300px;left:20%}
 
-/* ===== TOP NAV (NEW) ===== */
+/* ===== TOP NAV ===== */
 nav{
   position:fixed;
   top:0; left:0;
@@ -160,15 +160,56 @@ footer{
   opacity:.6;
 }
 
-/* MOBILE */
+/* ================= MOBILE FIX (ONLY ADDITION) ================= */
 @media(max-width:900px){
-  section{padding:100px 6vw}
-  .hero{grid-template-columns:1fr;text-align:center}
-  .hero img{margin:40px auto 0}
-  .hero h1{font-size:58px;letter-spacing:3px}
-  h2{font-size:38px}
-  .grid{grid-template-columns:1fr;gap:40px}
-  .contact{grid-template-columns:1fr}
+
+  section{
+    padding:100px 6vw;
+    text-align:center;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
+  }
+
+  .hero > div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .hero img{
+    margin:40px auto 0;
+  }
+
+  .hero h1{
+    font-size:58px;
+    letter-spacing:3px;
+  }
+
+  h2{
+    font-size:38px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:40px;
+    justify-items:center;
+  }
+
+  .logo,
+  .image{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .contact{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
+  }
 }
 </style>
 </head>
