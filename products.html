@@ -42,7 +42,7 @@ nav a{color:#eaeaea;text-decoration:none;font-size:14px;opacity:.8}
 .section{display:none;margin-top:140px}
 .section h2{font-family:'Syne',sans-serif;font-size:44px;margin-bottom:50px}
 
-/* BIRLA CATEGORY BUTTONS */
+/* BIRLA TABS */
 .birla-tabs{
   display:flex;
   gap:30px;
@@ -55,11 +55,8 @@ nav a{color:#eaeaea;text-decoration:none;font-size:14px;opacity:.8}
   padding:14px 28px;
   border-radius:22px;
   cursor:pointer;
-  font-size:14px;
 }
-.birla-tabs button.active{
-  background:#4a2f5c;
-}
+.birla-tabs button.active{background:#4a2f5c}
 
 /* GALLERIES */
 .gallery{
@@ -136,10 +133,10 @@ nav a{color:#eaeaea;text-decoration:none;font-size:14px;opacity:.8}
       <button onclick="showSanitary()">Sanitaryware</button>
     </div>
 
-    <!-- Bath fittings -->
+    <!-- Bath fittings (UNCHANGED) -->
     <div id="bath" class="gallery"></div>
 
-    <!-- Sanitaryware -->
+    <!-- Sanitaryware (ROOT IMAGES) -->
     <div id="sanitary" class="gallery"></div>
   </div>
 
@@ -175,7 +172,7 @@ function showSanitary(){
   document.querySelectorAll(".birla-tabs button")[0].classList.remove("active");
 }
 
-/* LOAD BATH FITTINGS IMAGES (images/cp) */
+/* BATH FITTINGS (AS IT IS) */
 const bathNums=[10,11,12,24,43,58,59,76,86,98,108,135,151,164,186,199,208,218,238,259,276,289,299,319,340,350,387,392,412,416,422,445,452,461,478,490,511,523,535,555,556,566];
 const exts=["jpg","jpeg","png","webp","JPG","JPEG","PNG","WEBP"];
 
@@ -187,11 +184,16 @@ bathNums.forEach(n=>{
   bath.appendChild(img);
 });
 
-/* LOAD SANITARYWARE IMAGES (images/sanitary) */
-const sanitaryNums=[1,2,3,4,5,6,7,8,9,10]; // tu baad mein extend karega
-sanitaryNums.forEach(n=>{
+/* SANITARYWARE — ROOT IMAGES (NO MOVE, NO RENAME) */
+const sanitaryFiles=[
+ "1.png","3.jpg","4.jpg","9.jpg","27.jpg","33.jpg","34.jpg","47.jpg",
+ "62.jpg","81.jpg","117.jpg","122.png","124.png","126.png","130.jpg",
+ "140.jpg","153.jpg","154.jpg","182.jpg","196.jpg","201.jpg","202.jpg"
+];
+
+sanitaryFiles.forEach(f=>{
   const img=document.createElement("img");
-  img.src=`images/sanitary/${n}.jpg`;
+  img.src=f;
   sanitary.appendChild(img);
 });
 </script>
