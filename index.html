@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
 <title>PARV MARKETING | Premium Tiles & Bathware</title>
 
-<!-- ORIGINAL PREMIUM FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Syne:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -18,7 +14,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 
-/* ===== BACKGROUND (UNCHANGED) ===== */
 body{
   font-family:'Inter',sans-serif;
   color:#eaeaea;
@@ -30,21 +25,11 @@ body{
     #0e0f13;
 }
 
-/* BACKGROUND BLOBS */
-.bg{
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  filter:blur(140px);
-  opacity:.35;
-  z-index:-1;
-}
+.bg{position:fixed;width:700px;height:700px;border-radius:50%;filter:blur(140px);opacity:.35;z-index:-1;}
 .bg1{background:#4a2f5c;top:-300px;left:-300px}
 .bg2{background:#2e3550;top:30%;right:-300px}
 .bg3{background:#1f2435;bottom:-300px;left:20%}
 
-/* ===== TOP NAV ===== */
 nav{
   position:fixed;
   top:0; left:0;
@@ -78,14 +63,12 @@ nav .tabs a{
 }
 nav .tabs a:hover{opacity:1}
 
-/* SECTIONS */
 section{
   padding:160px 10%;
   max-width:1400px;
   margin:auto;
 }
 
-/* HERO */
 .hero{
   min-height:100vh;
   display:grid;
@@ -107,21 +90,18 @@ section{
 }
 .hero img{width:320px}
 
-/* HEADINGS */
 h2{
   font-family:'Syne',sans-serif;
   font-size:56px;
   margin-bottom:50px;
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:70px;
 }
 
-/* LOGOS */
 .logo{
   background:#fff;
   border-radius:36px;
@@ -133,14 +113,12 @@ h2{
 .logo.dark{background:#000}
 .logo img{max-width:240px}
 
-/* IMAGES */
 .image{
   width:100%;
   border-radius:40px;
   box-shadow:0 60px 160px rgba(0,0,0,.85);
 }
 
-/* CONTACT */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -153,63 +131,22 @@ iframe{
   border-radius:28px;
 }
 
-/* FOOTER */
 footer{
   text-align:center;
   padding:90px 20px;
   opacity:.6;
 }
 
-/* ================= MOBILE FIX (ONLY ADDITION) ================= */
 @media(max-width:900px){
-
-  section{
-    padding:100px 6vw;
-    text-align:center;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    justify-items:center;
-    text-align:center;
-  }
-
-  .hero > div{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .hero img{
-    margin:40px auto 0;
-  }
-
-  .hero h1{
-    font-size:58px;
-    letter-spacing:3px;
-  }
-
-  h2{
-    font-size:38px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-    gap:40px;
-    justify-items:center;
-  }
-
-  .logo,
-  .image{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .contact{
-    grid-template-columns:1fr;
-    justify-items:center;
-    text-align:center;
-  }
+  section{padding:100px 6vw;text-align:center;}
+  .hero{grid-template-columns:1fr;justify-items:center;text-align:center;}
+  .hero > div{display:flex;flex-direction:column;align-items:center;}
+  .hero img{margin:40px auto 0;}
+  .hero h1{font-size:58px;letter-spacing:3px;}
+  h2{font-size:38px;}
+  .grid{grid-template-columns:1fr;gap:40px;justify-items:center;}
+  .logo,.image{margin-left:auto;margin-right:auto;}
+  .contact{grid-template-columns:1fr;justify-items:center;text-align:center;}
 }
 </style>
 </head>
@@ -220,17 +157,16 @@ footer{
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 
-<!-- NAV -->
 <nav>
   <div class="brand">PARV MARKETING</div>
   <div class="tabs">
     <a href="products.html">PRODUCTS</a>
+    <a href="tools.html">TOOLS</a>
     <a href="#about">ABOUT US</a>
     <a href="#contact">CONTACT US</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div>
     <h1>PARV<br>MARKETING</h1>
@@ -242,7 +178,6 @@ footer{
   <img src="logo.png" alt="Parv Marketing Logo">
 </section>
 
-<!-- OUR BRANDS -->
 <section>
   <h2>Our Brands</h2>
   <div class="grid">
@@ -251,7 +186,6 @@ footer{
   </div>
 </section>
 
-<!-- BIRLA -->
 <section>
   <h2>Birla Pivot Bathware</h2>
   <div class="grid">
@@ -260,7 +194,6 @@ footer{
   </div>
 </section>
 
-<!-- NITCO -->
 <section>
   <h2>Nitco Tiles Collection</h2>
   <div class="grid">
@@ -269,7 +202,6 @@ footer{
   </div>
 </section>
 
-<!-- PLUMBING -->
 <section>
   <h2>Plumbing Pipe Systems</h2>
   <div class="grid">
@@ -278,7 +210,6 @@ footer{
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Us</h2>
   <p>
@@ -288,7 +219,6 @@ footer{
   </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
   <div class="contact">
