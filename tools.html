@@ -2,19 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tools | PARV MARKETING</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Syne:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Inter',sans-serif;
   color:#eaeaea;
-  overflow-x:hidden;
   background:
     radial-gradient(circle at 15% 20%, #3b2f4a 0%, transparent 45%),
     radial-gradient(circle at 85% 30%, #2c3340 0%, transparent 50%),
@@ -35,56 +32,44 @@ nav{
   z-index:1000;
 }
 
-nav .brand{
-  font-family:'Syne',sans-serif;
-  font-size:14px;
-  letter-spacing:1px;
-}
-
-nav .tabs{
-  display:flex;
-  gap:22px;
-}
-
-nav .tabs a{
-  color:#eaeaea;
-  text-decoration:none;
-  font-size:13px;
-  opacity:.85;
-}
+nav .brand{font-family:'Syne',sans-serif;font-size:14px}
+nav .tabs{display:flex;gap:22px}
+nav .tabs a{color:#eaeaea;text-decoration:none;font-size:13px;opacity:.85}
 nav .tabs a:hover{opacity:1}
 
 section{
   padding:160px 10%;
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
 }
 
 h1{
   font-family:'Playfair Display',serif;
-  font-size:64px;
+  font-size:56px;
   margin-bottom:40px;
 }
 
-.form-group{
+.room-card{
+  background:rgba(255,255,255,.05);
+  padding:25px;
+  border-radius:20px;
   margin-bottom:25px;
 }
 
 input, select{
   width:100%;
-  padding:14px;
-  border-radius:12px;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:10px;
   border:none;
   background:#1c1f28;
   color:#fff;
-  font-size:15px;
 }
 
 button{
-  width:100%;
-  padding:16px;
+  padding:14px;
   border:none;
-  border-radius:14px;
+  border-radius:12px;
   background:#eaeaea;
   color:#000;
   font-weight:600;
@@ -92,11 +77,18 @@ button{
   margin-top:10px;
 }
 
+.add-btn{
+  background:transparent;
+  border:1px solid #eaeaea;
+  color:#eaeaea;
+  margin-bottom:30px;
+}
+
 .result-box{
   margin-top:40px;
   padding:30px;
-  border-radius:24px;
-  background:rgba(255,255,255,.05);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
   display:none;
 }
 
@@ -117,28 +109,46 @@ small{opacity:.6}
 </nav>
 
 <section>
-  <h1>Tile Calculator</h1>
+<h1>Tile Calculator</h1>
 
-  <div class="form-group">
-    <input type="text" id="room" placeholder="Room Name" required>
-  </div>
+<div id="roomsContainer"></div>
 
-  <div class="form-group">
-    <input type="number" id="area" placeholder="Total Area (sqft)" required>
-  </div>
+<button class="add-btn" onclick="addRoom()">+ Add Room</button>
 
-  <div class="form-group">
-    <select id="size">
+<button onclick="showLeadForm()">Calculate & Get Best Price</button>
+
+<div id="leadForm" style="display:none;margin-top:30px;">
+  <input type="text" id="clientName" placeholder="Your Name">
+  <input type="tel" id="clientPhone" placeholder="Contact Number">
+  <button onclick="submitLead()">Unlock My Requirement</button>
+</div>
+
+<div class="result-box" id="resultBox"></div>
+
+</section>
+
+<script>
+
+let roomCount = 0;
+
+function addRoom(){
+  roomCount++;
+  let container = document.getElementById("roomsContainer");
+
+  let card = document.createElement("div");
+  card.className = "room-card";
+  card.innerHTML = `
+    <h3>Room ${roomCount}</h3>
+    <input type="text" placeholder="Room Name" class="roomName">
+    <input type="number" placeholder="Total Area (sqft)" class="roomArea">
+    <select class="roomSize">
       <option value="">Select Tile Size</option>
-      <option value="3.87-4">600mm x 600mm</option>
-      <option value="7.75-2">600mm x 1200mm</option>
-      <option value="13.78-2">800mm x 1600mm</option>
-      <option value="23.25-2">1200mm x 1800mm</option>
+      <option value="3.87-4">600x600</option>
+      <option value="7.75-2">600x1200</option>
+      <option value="13.78-2">800x1600</option>
+      <option value="23.25-2">1200x1800</option>
     </select>
-  </div>
-
-  <div class="form-group">
-    <select id="type">
+    <select class="roomType">
       <option value="">Select Tile Type</option>
       <option>GVT Matt</option>
       <option>GVT Glossy</option>
@@ -146,59 +156,44 @@ small{opacity:.6}
       <option>GVT Carving</option>
       <option>Other</option>
     </select>
-  </div>
+    <button onclick="this.parentElement.remove()">Remove Room</button>
+  `;
+  container.appendChild(card);
+}
 
-  <button onclick="calculate()">Calculate & Get Best Price</button>
+addRoom(); // default one room
 
-  <div id="leadForm" style="display:none;margin-top:30px;">
-    <div class="form-group">
-      <input type="text" id="clientName" placeholder="Your Name">
-    </div>
-    <div class="form-group">
-      <input type="tel" id="clientPhone" placeholder="Contact Number">
-    </div>
-    <button onclick="submitLead()">Unlock My Requirement</button>
-  </div>
+let calculatedData = [];
 
-  <div class="result-box" id="resultBox"></div>
+function showLeadForm(){
+  let rooms = document.querySelectorAll(".room-card");
+  calculatedData = [];
 
-</section>
-
-<script>
-
-let finalTiles = 0;
-let finalBoxes = 0;
-let summaryText = "";
-
-function calculate(){
-  let room = document.getElementById("room").value;
-  let area = parseFloat(document.getElementById("area").value);
-  let sizeData = document.getElementById("size").value;
-  let type = document.getElementById("type").value;
-
-  if(!room || !area || !sizeData || !type){
-    alert("Please fill all fields");
+  if(rooms.length === 0){
+    alert("Add at least one room");
     return;
   }
 
-  let parts = sizeData.split("-");
-  let tileArea = parseFloat(parts[0]);
-  let perBox = parseInt(parts[1]);
+  rooms.forEach(room => {
+    let name = room.querySelector(".roomName").value;
+    let area = parseFloat(room.querySelector(".roomArea").value);
+    let size = room.querySelector(".roomSize").value;
+    let type = room.querySelector(".roomType").value;
 
-  let tiles = area / tileArea;
-  tiles = tiles * 1.10; // 10% wastage
-  finalTiles = Math.ceil(tiles);
+    if(!name || !area || !size || !type){
+      alert("Fill all room details");
+      return;
+    }
 
-  finalBoxes = Math.ceil(finalTiles / perBox);
+    let parts = size.split("-");
+    let tileArea = parseFloat(parts[0]);
+    let perBox = parseInt(parts[1]);
 
-  summaryText =
-  "Room: " + room +
-  "\nArea: " + area + " sqft" +
-  "\nTile Size: " + document.getElementById("size").options[document.getElementById("size").selectedIndex].text +
-  "\nTile Type: " + type +
-  "\nTiles Required: approx. " + finalTiles +
-  "\nBoxes Required: approx. " + finalBoxes +
-  "\nWastage Included: 10%";
+    let tiles = Math.ceil((area / tileArea) * 1.10);
+    let boxes = Math.ceil(tiles / perBox);
+
+    calculatedData.push({name, area, sizeText: room.querySelector(".roomSize").selectedOptions[0].text, type, tiles, boxes});
+  });
 
   document.getElementById("leadForm").style.display = "block";
 }
@@ -208,26 +203,49 @@ function submitLead(){
   let phone = document.getElementById("clientPhone").value;
 
   if(!name || !phone){
-    alert("Please enter your details");
+    alert("Enter your details");
     return;
   }
+
+  let summary = "";
+  let totalTiles = 0;
+  let totalBoxes = 0;
+
+  calculatedData.forEach((room, index) => {
+    summary += `Room ${index+1}: ${room.name}\nArea: ${room.area} sqft\nTile: ${room.sizeText}\nType: ${room.type}\nTiles: approx ${room.tiles}\nBoxes: approx ${room.boxes}\n\n`;
+    totalTiles += room.tiles;
+    totalBoxes += room.boxes;
+  });
+
+  summary += `Grand Total Tiles: approx ${totalTiles}\nGrand Total Boxes: approx ${totalBoxes}\nWastage Included: 10%`;
 
   fetch("https://docs.google.com/forms/d/e/1FAIpQLSfLqmXuh_sItFeY72TgaqGpUhOnmwLOsbj7RbtS1kkO8uf0oQ/formResponse", {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body:
-      "entry.666669250=" + encodeURIComponent(summaryText) +
+      "entry.666669250=" + encodeURIComponent(summary) +
       "&entry.656674620=" + encodeURIComponent(name) +
       "&entry.687410714=" + encodeURIComponent(phone)
   });
 
+  let resultHTML = "";
+  calculatedData.forEach(room => {
+    resultHTML += `
+      <p><b>${room.name}</b><br>
+      ${room.sizeText} | ${room.type}<br>
+      Tiles Required: approx <b>${room.tiles}</b><br>
+      Boxes Required: approx <b>${room.boxes}</b></p><br>
+    `;
+  });
+
+  resultHTML += `<hr><p><b>Grand Total</b><br>
+  Tiles: approx ${totalTiles}<br>
+  Boxes: approx ${totalBoxes}</p>
+  <small>Final quantity may vary depending on layout pattern.</small>`;
+
+  document.getElementById("resultBox").innerHTML = resultHTML;
   document.getElementById("resultBox").style.display = "block";
-  document.getElementById("resultBox").innerHTML =
-    "<h3>Your Estimated Requirement</h3><br>" +
-    "<p>Tiles Required: approx. <b>" + finalTiles + "</b></p>" +
-    "<p>Boxes Required: approx. <b>" + finalBoxes + "</b></p><br>" +
-    "<small>Final quantity may vary depending on layout pattern.</small>";
 }
 
 </script>
