@@ -84,6 +84,12 @@ button{
   margin-bottom:30px;
 }
 
+.remove-btn{
+  background:#2a2f3a;
+  color:#fff;
+  margin-top:5px;
+}
+
 .result-box{
   margin-top:40px;
   padding:30px;
@@ -114,7 +120,6 @@ small{opacity:.6}
 <div id="roomsContainer"></div>
 
 <button class="add-btn" onclick="addRoom()">+ Add Room</button>
-
 <button onclick="showLeadForm()">Calculate & Get Best Price</button>
 
 <div id="leadForm" style="display:none;margin-top:30px;">
@@ -130,6 +135,7 @@ small{opacity:.6}
 <script>
 
 let roomCount = 0;
+let calculatedData = [];
 
 function addRoom(){
   roomCount++;
@@ -139,7 +145,7 @@ function addRoom(){
   card.className = "room-card";
   card.innerHTML = `
     <h3>Room ${roomCount}</h3>
-    <input type="text" placeholder="Room Name" class="roomName">
+    <input type="text" placeholder="Room Name (Living Room, Bedroom, Kitchen, etc.)" class="roomName">
     <input type="number" placeholder="Total Area (sqft)" class="roomArea">
     <select class="roomSize">
       <option value="">Select Tile Size</option>
@@ -156,14 +162,19 @@ function addRoom(){
       <option>GVT Carving</option>
       <option>Other</option>
     </select>
-    <button onclick="this.parentElement.remove()">Remove Room</button>
+    <select class="roomWastage">
+      <option value="5" selected>Wastage 5%</option>
+      <option value="8">Wastage 8%</option>
+      <option value="10">Wastage 10% (Recommended)</option>
+      <option value="12">Wastage 12%</option>
+      <option value="0">No Wastage</option>
+    </select>
+    <button class="remove-btn" onclick="this.parentElement.remove()">Remove Room</button>
   `;
   container.appendChild(card);
 }
 
-addRoom(); // default one room
-
-let calculatedData = [];
+addRoom();
 
 function showLeadForm(){
   let rooms = document.querySelectorAll(".room-card");
@@ -174,11 +185,12 @@ function showLeadForm(){
     return;
   }
 
-  rooms.forEach(room => {
+  for(let room of rooms){
     let name = room.querySelector(".roomName").value;
     let area = parseFloat(room.querySelector(".roomArea").value);
     let size = room.querySelector(".roomSize").value;
     let type = room.querySelector(".roomType").value;
+    let wastage = parseFloat(room.querySelector(".roomWastage").value);
 
     if(!name || !area || !size || !type){
       alert("Fill all room details");
@@ -189,11 +201,22 @@ function showLeadForm(){
     let tileArea = parseFloat(parts[0]);
     let perBox = parseInt(parts[1]);
 
-    let tiles = Math.ceil((area / tileArea) * 1.10);
+    let tiles = area / tileArea;
+    tiles = tiles * (1 + wastage/100);
+    tiles = Math.ceil(tiles);
+
     let boxes = Math.ceil(tiles / perBox);
 
-    calculatedData.push({name, area, sizeText: room.querySelector(".roomSize").selectedOptions[0].text, type, tiles, boxes});
-  });
+    calculatedData.push({
+      name,
+      area,
+      sizeText: room.querySelector(".roomSize").selectedOptions[0].text,
+      type,
+      wastage,
+      tiles,
+      boxes
+    });
+  }
 
   document.getElementById("leadForm").style.display = "block";
 }
@@ -212,12 +235,12 @@ function submitLead(){
   let totalBoxes = 0;
 
   calculatedData.forEach((room, index) => {
-    summary += `Room ${index+1}: ${room.name}\nArea: ${room.area} sqft\nTile: ${room.sizeText}\nType: ${room.type}\nTiles: approx ${room.tiles}\nBoxes: approx ${room.boxes}\n\n`;
+    summary += `Room ${index+1}: ${room.name}\nArea: ${room.area} sqft\nTile: ${room.sizeText}\nType: ${room.type}\nWastage: ${room.wastage}%\nTiles: approx ${room.tiles}\nBoxes: approx ${room.boxes}\n\n`;
     totalTiles += room.tiles;
     totalBoxes += room.boxes;
   });
 
-  summary += `Grand Total Tiles: approx ${totalTiles}\nGrand Total Boxes: approx ${totalBoxes}\nWastage Included: 10%`;
+  summary += `Grand Total Tiles: approx ${totalTiles}\nGrand Total Boxes: approx ${totalBoxes}`;
 
   fetch("https://docs.google.com/forms/d/e/1FAIpQLSfLqmXuh_sItFeY72TgaqGpUhOnmwLOsbj7RbtS1kkO8uf0oQ/formResponse", {
     method: "POST",
@@ -234,6 +257,7 @@ function submitLead(){
     resultHTML += `
       <p><b>${room.name}</b><br>
       ${room.sizeText} | ${room.type}<br>
+      Wastage: ${room.wastage}%<br>
       Tiles Required: approx <b>${room.tiles}</b><br>
       Boxes Required: approx <b>${room.boxes}</b></p><br>
     `;
